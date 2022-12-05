@@ -2,8 +2,6 @@
 <html>
 <head>
 <title>From Georgian Farm Boy to Stardom – A Dream Fulfilled</title>
-<link href='player.css' rel='stylesheet' type='text/css'><script type='text/javascript' src='soundcite.min.js'></script>
-
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -35,4 +33,38 @@ To hear more details about his fights, please listen to my interview with Merab 
 
 <p>He ended up purchasing two houses, one in New York, and another in Las Vegas, close to UFC headquarters, and the UFC gym in Vegas. He’s living his dream, the definition of the American Dream. “Everybody’s good now, everybody has a good life, you know?"</p>
 </body>
+
+
+<script id="soundcloud-clip-base-template" type="text/template">
+<span class="soundcite" data-id="<%= id %>" data-start="<%= start %>" data-end="<%= end %>" data-plays="<%= plays %>"><%= text %></span>
+</script>
+<script id="file-clip-base-template" type="text/template">
+<span class="soundcite" data-url="<%= url %>" data-start="<%= start %>" data-end="<%= end %>" data-plays="<%= plays %>"><%= text %></span>
+</script>
+<script id="clip-preview-template" type="text/template">
+<div class="clip">
+  <a type='button' class='button button-link pull-right delete-clip'>delete</a>
+  <p>This is your clip <%= clip_html %> shown inline with text.</p>
+  <h6>Embed code</h6>
+  <textarea readonly="readonly" class="code"><%= clip_html %></textarea>
+</div>
+</script>
+
+<script id="create-error-template" type="text/template">
+<div id="create-error" class="alert alert-error clear">
+  <a data-dismiss="alert" class="close button button-primary button-smallest" type="button">&times;</a>
+  <strong>Oops!</strong> Please correct the errors above and try submitting again.
+</div>
+</script>
+
+<script id="embed-code-template" type="text/template">
+  <% if (typeof(api_key) !== "undefined" && api_key != "") { %><% print('<script'); %> type="text/javascript">SOUNDCITE_CONFIG = {soundcloud_client_id: "<%= api_key %>"}<% print('</' + 'script>'); %><% } %><link href='https://cdn.knightlab.com/libs/soundcite/latest/css/player.css' rel='stylesheet' type='text/css'><% print('<script'); %> type='text/javascript' src='https://cdn.knightlab.com/libs/soundcite/latest/js/soundcite.min.js'><% print('</' + 'script>'); %>
+</script>
+<script src="https://cdn.knightlab.com/libs/orangeline/latest/js/main.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+<script src="//w.soundcloud.com/player/api.js"></script>
+<script src="/static/js/main.js"></script>
+
+
 </html>
