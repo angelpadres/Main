@@ -3,7 +3,7 @@
 body {
     background-color: grey;
     color: white;
-    text-align: justify;
+    text-align: left;
     font-family: Georgia;
 	max-width: 60%;
 	margin: auto;
@@ -20,9 +20,5 @@ h1 {
 }
 
 .video p {
-	font-size: 12px;
-}
-
-.soundcite {
-	
+	font-size: 14px;
 }
