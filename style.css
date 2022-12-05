@@ -16,8 +16,9 @@ h1 {
 	text-align: center;
 }
 .video {
-	padding: 10px;
+	margin: auto;
 	text-align: center;
+	max-width: 100%;
 }
 
 .video p {
