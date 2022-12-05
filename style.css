@@ -1,7 +1,7 @@
 
 
 body {
-    background-color: #292929;
+    background-color: grey;
     color: white;
     text-align: justify;
     font-family: Georgia;
@@ -25,14 +25,4 @@ h1 {
 
 .soundcite {
 	
-}
-
-.soundcite-play:before {
-    border: 0.5em solid transparent;
-    border-left: 0.75em solid #a4aab1;
-}
-
-.soundcite-pause:before {
-    border-left: .75em double #a4aab1;
-    border-right: .5em solid transparent;
 }
