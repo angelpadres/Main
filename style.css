@@ -22,3 +22,7 @@ h1 {
 .video p {
 	font-size: 14px;
 }
+
+.soundcite {
+	display: inline;
+}
