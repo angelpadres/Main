@@ -48,6 +48,10 @@ h1 {
 	font-size: 1.5em;
 	padding-top: 25px;
 }
+
+hr {
+	margin: 5px 0px;
+}
 .video {
 	margin: auto;
 	text-align: center;
