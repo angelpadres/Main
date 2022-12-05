@@ -1,15 +1,16 @@
 
 
 body {
-    background-color: grey;
-    color: white;
+    background-color: #efefef;
+    color: black;
     text-align: left;
     font-family: Georgia;
 	max-width: 60%;
 	margin: auto;
 }
 a {
-	color: #a4afb1;
+	/*color: #a4afb1;*/
+	color: #6f6f6f;
 }
 h1 {
 	text-align: center;
@@ -25,4 +26,8 @@ h1 {
 
 .soundcite {
 	display: inline;
+}
+
+footer {
+	text-align: center;
 }
