@@ -1,6 +1,24 @@
+
+
 body {
-    background-color: #333333;
-    color: #cccccc;
+    background-color: #292929;
+    color: white;
     text-align: justify;
     font-family: Georgia;
+	max-width: 60%;
+	margin: auto;
+}
+a {
+	color: #a4afb1;
+}
+h1 {
+	text-align: center;
+}
+.video {
+	padding: 10px;
+	text-align: center;
+}
+
+.video p {
+	font-size: 12px;
 }
