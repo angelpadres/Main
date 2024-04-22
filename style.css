@@ -25,8 +25,20 @@ h2 {
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: .5em;
-  margin-top: 0;
+  margin: 0;
   color: #AB7CD4;
+}
+
+h3 {
+  font: 13px 'Quattrocento';
+  margin: 0;
+  color: #7785AC;
+}
+
+h4 {
+  font: 11px 'Quattrocento Sans';
+  margin: 0;
+  color: #97C9A7;
 }
 
 header {
@@ -61,7 +73,22 @@ nav {
 
 #contact {
   text-align: center;
-  margin: 2.5m auto;
+  margin: 1em auto;
+}
+
+#writing {
+  
+}
+
+#media {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 1em;
+  border-radius: 1em;
+}
+
+#media img {
+  height: 200px;
 }
 
 #contact a {
