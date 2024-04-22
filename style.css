@@ -38,6 +38,7 @@ h3 {
 h4 {
   font: 11px 'Quattrocento Sans';
   margin: 0;
+  padding-bottom: .5em;
   color: #97C9A7;
 }
 
@@ -77,18 +78,39 @@ nav {
 }
 
 #writing {
-  
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 1.5em;
+  border-radius: 1em;
 }
 
 #media {
+  width: 100%;
+  height: calc(100vh - 50px);
   text-align: center;
   background-color: rgba(0, 0, 0, 0.75);
   padding: 1em;
   border-radius: 1em;
+  overflow: scroll;
+  overflow-x: hidden;
+  max-height: 60vh;
 }
 
 #media img {
   height: 200px;
+}
+
+#media::-webkit-scrollbar {
+  width: 12px; /* width of the scrollbar */
+}
+#media::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.75); /* color of the track */
+}
+#media::-webkit-scrollbar-thumb {
+  background: #000; /* color of the thumb */
+  border-radius: 6px; /* roundness of the thumb */
+}
+#media::-webkit-scrollbar-thumb:hover {
+  background: #555; /* color of the thumb on hover */
 }
 
 #contact a {
@@ -127,6 +149,7 @@ input[type=text], select, textarea {
   box-sizing: border-box;
   margin-top: 4px;
   margin-bottom: 4px;
+  resize: none;
 }
 
 input[type=submit] {
@@ -147,4 +170,6 @@ input[type=submit]:hover {
   background-color: #rgba(0, 0, 0, 0.75);
   padding: 1em -.5em;
 }
+
+
 
