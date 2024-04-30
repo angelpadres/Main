@@ -32,7 +32,7 @@ h2 {
   text-transform: uppercase;
   letter-spacing: .5em;
   margin: 0;
-  color: #AB7CD4;
+  color: #C59AEA;
 }
 
 h3 {
@@ -60,7 +60,8 @@ h4 {
 
 #writing {
   width: 100%;
-  max-height: 64vh;
+  max-width: 100vw;
+  max-height: 60vh;
   overflow: scroll;
   overflow-x: hidden;
   background-color: rgba(0, 0, 0, 0.75);
@@ -71,26 +72,35 @@ h4 {
 
 #media {
   width: 100%;
+  max-width: 100vw;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.75);
   padding: 1em;
   border-radius: 1em;
   overflow: scroll;
   overflow-x: hidden;
-  max-height: 65vh;
+  max-height: 60vh;
 }
 
 #media img {
   height: 200px;
 }
 
-#contact {
+#full_media {
+  width: 100%;
+  max-width: 100vw;
+  margin-top: 1em;
   text-align: center;
-  margin: 1em auto;
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 1em;
+  border-radius: 1em;
+  overflow-x: hidden;
+  max-height: 75vh;
 }
 
-#contact a {
-  padding: 1.5em 2em;
+#full_media img {
+  max-height: 70vh;
+  max-width: 100%;
 }
 
 #multimedia {
@@ -105,6 +115,38 @@ h4 {
   display: block;
 }
 
+#resume {
+  width: 100%;
+  max-height: 64vh;
+  overflow: scroll;
+  overflow-x: hidden;
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 1.5em;
+  border-radius: 1em;
+  text-align: center;
+}
+
+#contact, {
+  text-align: center;
+  margin: 1em auto;
+}
+
+#coming_soon {
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-bottom: 12em;
+}
+
+#contact a {
+  padding: 1.5em 2em;
+}
+
+#coming_soon a {
+  padding: 1.5em 2em;
+}
 
 .tiles {
   display: inline-block;
@@ -140,10 +182,21 @@ h4 {
   filter: grayscale(100%);
 }
 
+.tiles:active { 
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
 .mm_tiles:hover, a:focus {
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
   text-decoration: none;
+}
+
+.videos {
+  display: inline-block;
+  position: relative;
+  margin: 0.5em;
 }
 
 nav {
@@ -165,6 +218,7 @@ footer {
   line-height: 175%;
   text-align: right;
 }
+
 
 nav a {
   padding: 0 1.5em;
@@ -246,5 +300,19 @@ input[type=submit]:hover {
   border-radius: 6px;
 }
 #media::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+#resume::-webkit-scrollbar {
+  width: 12px;
+}
+#resume::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.75);
+}
+#resume::-webkit-scrollbar-thumb {
+  background: #000;
+  border-radius: 6px;
+}
+#resume::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
