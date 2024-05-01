@@ -124,7 +124,7 @@ h4 {
 
 #resume {
   width: 100%;
-  max-height: 64vh;
+  max-height: 60vh;
   overflow: scroll;
   overflow-x: hidden;
   background-color: rgba(0, 0, 0, 0.75);
@@ -135,7 +135,6 @@ h4 {
 
 #education {
   width: auto;
-  max-height: 64vh;
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.75);
   padding: 1.5em;
@@ -170,7 +169,6 @@ h4 {
   width: auto;
   max-height: 64vh;
   overflow-x: hidden;
-  overflow: scroll;
   background-color: rgba(0, 0, 0, 0.75);
   padding: 1.5em;
   margin: .5em;
