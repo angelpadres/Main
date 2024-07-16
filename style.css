@@ -271,6 +271,7 @@ footer {
 
 
 nav a {
+  font-weight: 100;
   padding: 0 1.5em;
 }
 
@@ -292,6 +293,10 @@ a:hover, a:focus {
 
 a:active {
   color: #c300ff;
+}
+
+nav .active_page {
+  color: #7785AC;
 }
 
 
