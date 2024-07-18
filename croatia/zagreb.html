@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Zagreb Croatia - The Dalmatian Delight</title>
+    <meta name="viewport" content="width=device-width">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400&display=swap');
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f7f1;
+        }
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1541510350439-47a7b5edf65c') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        nav {
+            background-color: rgba(255, 255, 255, 0.9);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+        nav ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            padding: 20px 0;
+            display: inline-block;
+            position: relative;
+        }
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #333;
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.3s ease-in-out 0s;
+        }
+        nav ul li a:hover::after {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 4rem 0;
+        }
+        .blog-content {
+            background: #fff;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .blog-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+        .meta {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        blockquote {
+            background: #f9f9f9;
+            border-left: 10px solid #ccc;
+            margin: 1.5em 10px;
+            padding: 0.5em 10px;
+            quotes: "\201C""\201D""\2018""\2019";
+        }
+        blockquote:before {
+            color: #ccc;
+            content: open-quote;
+            font-size: 4em;
+            line-height: 0.1em;
+            margin-right: 0.25em;
+            vertical-align: -0.4em;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        .btn {
+            display: inline-block;
+            background: #333;
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background: #555;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            padding-top: 30px;
+            height: 0;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        .video-container iframe,
+        .video-container object,
+        .video-container embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/#gallery">Gallery</a></li>
+            <li><a href="/#videos">Videos</a></li>
+            <li><a href="/#blog">Blog</a></li>
+            <li><a href="/#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Zagreb: A Tale of Two Cities</h1>
+    </header>
+    
+    <div class="container">
+        <article class="blog-content">
+            <p class="meta">Published on July 15, 2024 | By Angel Padres</p>
+            
+            <p>Zagreb, Croatia's capital, is a city of contrasts. As I stepped off the tram in the heart of the city, I found myself at the intersection of two distinct worlds - the historic Upper Town (Gornji Grad) and the bustling Lower Town (Donji Grad). This juxtaposition of old and new, traditional and modern, is what makes Zagreb such a fascinating destination.</p>
+
+            <h2>Upper Town: A Step Back in Time</h2>
+            
+            <p>My journey began in the Upper Town, where cobblestone streets and medieval architecture tell the story of a bygone era. As I climbed the steep streets, each step felt like traveling further back in time.</p>
+            
+            <img src="https://images.unsplash.com/photo-1541510350439-47a7b5edf65c" alt="St. Mark's Church in Zagreb" width="800" height="600">
+            
+            <p>The crown jewel of Upper Town is undoubtedly St. Mark's Church. Its colorful tiled roof, depicting the coat of arms of Zagreb and the Triune Kingdom of Croatia, Slavonia, and Dalmatia, is a masterpiece of Croatian artistry. Standing in the quiet square, I couldn't help but feel a sense of awe at the centuries of history surrounding me.</p>
+
+            <blockquote>
+                <p>Zagreb's Upper Town is like a living museum, where every stone and every building has a story to tell.</p>
+            </blockquote>
+
+            <p>As I wandered through the charming streets, the aroma of fresh pastries from local bakeries filled the air. I stopped at a small café tucked away in a quiet corner, where I savored a cup of Croatian coffee and watched the world go by.</p>
+
+            <h2>Lower Town: The Pulse of Modern Zagreb</h2>
+            
+            <p>Descending into the Lower Town, I was immediately struck by the change in atmosphere. The narrow, winding streets gave way to wide boulevards and expansive squares. Here, the architecture tells a different story - one of 19th-century grandeur and 21st-century innovation.</p>
+            
+            <img src="https://images.unsplash.com/photo-1587116230846-9a3b572468a8" alt="Tram in Zagreb's Lower Town" width="800" height="600">
+            
+            <p>The heart of Lower Town is Ban Jelačić Square, a bustling hub of activity where locals and tourists alike gather. The square is dominated by a statue of Ban Josip Jelačić on horseback, a symbol of Croatian national identity.</p>
+
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/YK3ubuvmLOA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <p>As I explored further, I found myself on Tkalčićeva Street, once the border between the medieval towns of Gradec and Kaptol. Today, it's a vibrant pedestrian zone lined with colorful buildings housing cafes, restaurants, and boutiques. The street comes alive in the evenings, with locals and visitors enjoying the lively atmosphere and excellent Croatian cuisine.</p>
+
+            <h2>Where Past Meets Present</h2>
+            
+            <p>What struck me most about Zagreb was how seamlessly the city blends its rich history with modern life. In the Upper Town, I visited the Museum of Broken Relationships, a uniquely contemporary museum housed in a baroque palace. In the Lower Town, I marveled at the beautiful Art Nouveau architecture while browsing in cutting-edge design shops.</p>
+
+            <p>As night fell, I took the funicular - the world's shortest public transport cable car - back up to the Upper Town. From the Strossmayer Promenade, I watched the lights of the Lower Town twinkle below, a perfect metaphor for the way Zagreb brings together the old and the new.</p>
+
+            <blockquote>
+                <p>Zagreb doesn't just preserve its history - it lives it, breathes it, and continually reinvents it.</p>
+            </blockquote>
+
+            <p>My time in Zagreb was a journey through centuries of Croatian culture and history. From the medieval towers of the Upper Town to the bustling cafes of the Lower Town, every corner of this city tells a story. Zagreb truly is a tale of two cities - and it's a tale I'll never forget.</p>
+
+            <a href="/#blog" class="btn">Back to Blog</a>
+        </article>
+    </div>
+    
+    <footer>
+        <p>© 2024 Angel Padres. All rights reserved.</p>
+        <p>Crafted with love and wanderlust</p>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            var nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.backgroundColor = '#fff';
+            } else {
+                nav.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+            }
+        });
+    </script>
+</body></html>
