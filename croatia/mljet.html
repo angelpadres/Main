@@ -168,24 +168,38 @@
             padding: 2rem;
             margin-top: 2rem;
         }
+        .btn {
+            display: inline-block;
+            background: #333;
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background: #555;
+        }
     </style>
+</head>
 
 <body>
     <nav>
         <ul>
-            <li><a href="/.../croatia.html">Home</a></li>
-            <li><a href="#description">About</a></li>
+            <li><a href="#home">Home</a></li> 
+            <li><a href="#about">About</a></li>
             <li><a href="#photos">Gallery</a></li>
             <li><a href="#attractions">Attractions</a></li>
         </ul>
     </nav>
 
-    <header style="background: url('media/mljet/mljet_lake.jpg') no-repeat center center/cover;">
+    <header id="home" style="background: url('media/mljet/mljet_lake.jpg') no-repeat center center/cover;">
         <h1>Mljet</h1>
     </header>
         
     <div class="container">
-        <section id="description">
+        <section id="about">
             <p class="meta">Published on July 15, 2024 | By Angel Padres</p>
 
             <p>The Adriatic, while alluring, can be too chilly in May for some of us who prefer warmer waters. Mljet was the perfect opportunity to swim in the smaller lake area where the sea flows into the basin, allowing the sun to warm the waters nicely. Given the sea was the source of its water source, we expected the lake to be just as salty, if not more so; but we were pleasantly surprised at the ease with which we were able to float due to the salinity of the lake. The emerald saltwater cradled me so gently, I could have surrendered to its weightless embrace all day.</p>
@@ -232,8 +246,8 @@
         </section>
 
         
-        <section id="attractions" class="content">
-            <h2>Top Attractions</h2>
+        <section id="attractions" class="description">
+            <h2>Top Attractions in Mljet</h2>
             <ul>
                 <li><strong>Mljet National Park:</strong> A must-visit featuring the famous saltwater lakes and the islet of St. Mary.</li>
                 <li><strong>Odysseus Cave:</strong> A sea cave steeped in legend, said to be where Odysseus spent seven years with the nymph Calypso.</li>
@@ -241,6 +255,7 @@
                 <li><strong>Polače:</strong> An ancient settlement with Roman palace ruins dating back to the 5th century.</li>
                 <li><strong>Hiking and Cycling Trails:</strong> Explore the island's diverse flora and fauna on well-maintained trails.</li>
             </ul>
+            <a href="../croatia.html" class="btn">Back to Blog</a>
         </section>
     </div>
     
@@ -273,7 +288,7 @@
             showSlide(currentIndex - 1);
         }
 
-        setInterval(nextSlide, 3000);
+        setInterval(nextSlide, 6000);
 
         function openFullImage(element) {
             const images = Array.from(document.querySelectorAll('.carousel-item img'));

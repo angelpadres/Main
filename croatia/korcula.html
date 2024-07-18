@@ -168,25 +168,38 @@
             padding: 2rem;
             margin-top: 2rem;
         }
+        .btn {
+            display: inline-block;
+            background: #333;
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background: #555;
+        }
     </style>
 </head>
 
 <body>
     <nav>
         <ul>
-            <li><a href="main.html">Home</a></li>
-            <li><a href="#description">About</a></li>
+            <li><a href="#home">Home</a></li> 
+            <li><a href="#about">About</a></li>
             <li><a href="#photos">Gallery</a></li>
             <li><a href="#attractions">Attractions</a></li>
         </ul>
     </nav>
 
-    <header style="background: url('media/korcula/korcula.jpg') no-repeat center center/cover;">
+    <header id="home" style="background: url('media/korcula/korcula.jpg') no-repeat center center/cover;">
         <h1>Korčula</h1>
     </header>
     
     <div class="container">
-        <section id="description">
+        <section id="about">
             <p class="meta">Published on July 15, 2024 | By Angel Padres</p>
 
             <p>Korčula, often referred to as "Little Dubrovnik," for the walls that are reminescent of the walls surrounding Dubrovnik. The island's main town, also named Korčula, is a beautifully preserved medieval walled city. Its herringbone pattern of narrow streets and alleys is designed to provide shelter from the sun and the prevailing winds.</p>
@@ -224,14 +237,15 @@
         </section>
         
         <section id="attractions" class="description">
-            <h3>Key Attractions:</h3>
+            <h3>Top Attractions in Korčula</h3>
             <ul>
-                <li>Korčula Old Town: Explore the medieval architecture and visit the alleged house of Marco Polo.</li>
-                <li>Beaches: Relax on beautiful beaches like Pupnatska Luka, Vela Przina, and Banje Beach.</li>
-                <li>Wineries: Taste local wines, especially the white wine Grk, unique to Korčula.</li>
-                <li>Moreška Sword Dance: Watch this traditional dance performance, a symbol of Korčula's cultural heritage.</li>
-                <li>St. Mark's Cathedral: Admire the blend of Gothic and Renaissance styles in this 15th-century cathedral.</li>
+                <li><strong>Korčula Old Town:</strong> Explore the medieval architecture and visit the alleged house of Marco Polo.</li>
+                <li><strong>Beaches:</strong> Relax on beautiful beaches like Pupnatska Luka, Vela Przina, and Banje Beach.</li>
+                <li><strong>Wineries:</strong> Taste local wines, especially the white wine Grk, unique to Korčula.</li>
+                <li><strong>Moreška Sword Dance:</strong> Watch this traditional dance performance, a symbol of Korčula's cultural heritage.</li>
+                <li><strong>St. Mark's Cathedral:</strong> Admire the blend of Gothic and Renaissance styles in this 15th-century cathedral.</li>
             </ul>
+            <a href="../croatia.html" class="btn">Back to Blog</a>
         </section>
     </div>
     
@@ -264,7 +278,7 @@
             showSlide(currentIndex - 1);
         }
 
-        setInterval(nextSlide, 3000);
+        setInterval(nextSlide, 6000);
 
         function openFullImage(element) {
             const images = Array.from(document.querySelectorAll('.carousel-item img'));

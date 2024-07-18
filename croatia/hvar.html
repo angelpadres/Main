@@ -168,25 +168,38 @@
             padding: 2rem;
             margin-top: 2rem;
         }
+        .btn {
+            display: inline-block;
+            background: #333;
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background: #555;
+        }
     </style>
 </head>
 
 <body>
     <nav>
         <ul>
-            <li><a href="angelpadres.com/croatia">Home</a></li>
-            <li><a href="#description">About</a></li>
+            <li><a href="#home">Home</a></li> 
+            <li><a href="#about">About</a></li>
             <li><a href="#photos">Gallery</a></li>
             <li><a href="#attractions">Attractions</a></li>
         </ul>
     </nav>
 
-    <header style="background: url('media/hvar_70.jpg') no-repeat center center/cover;">
+    <header id="home" style="background: url('media/hvar/hvar_port.jpg') no-repeat center center/cover;">
         <h1>Hvar</h1>
     </header>
     
     <div class="container">
-        <section id="description">
+        <section id="about">
             <p class="meta">Published on July 15, 2024 | By Angel Padres</p>
 
             <p>Night time on Hvar reveals what looks like a castle floating high above the city. Despite the darkness, you're still able to see through the clear waters, suspending the docked boats above an invisible sea-bottom. There's an ethereal beauty to the city, where you exist between the fortress overead, and the endless sea, weaving between the shops and restaurants while you're enveloped in the thumping sounds of lively music coming from nearby clubs as you walk past.</p>
@@ -219,14 +232,17 @@
 
         
         <section id="attractions" class="description">
-            <h2>Hvar Destinations</h2>
-            <p>Here are a few recommendations for places to visit on Hvar:</p>
-            
-            <h3>Lavender Fields</h3>
-            <p>One of Hvar's most iconic features is its sprawling lavender fields. In June and July, the island is awash in a sea of purple, filling the air with a sweet, calming fragrance. These fields not only provide a feast for the senses but also contribute to the island's tradition of lavender oil production.</p>
-            
-            <h3>Beaches and Coves</h3>
-            <p>Hvar boasts some of Croatia's most beautiful beaches. From the popular Zlatni Rat (Golden Horn) to secluded pebble coves accessible only by boat, the island's coastline offers something for every type of beach lover. The crystal-clear waters of the Adriatic provide perfect conditions for swimming, snorkeling, and diving.</p>            
+            <h2>Top Attractions in Hvar</h2>
+            <ul>
+                <li><strong>Blue Cave on Biševo:</strong> A stunning natural phenomenon (day trip from Hvar).</li>
+                <li><strong>Fortica (Spanish Fortress):</strong> Climb for panoramic views of the town and Pakleni Islands.</li>
+                <li><strong>Lavender Fields:</strong> Visit in June and July for the iconic purple landscapes.</li>
+                <li><strong>Stari Grad Plain:</strong> UNESCO World Heritage site, showcasing ancient Greek agricultural practices.</li>
+                <li><strong>Pakleni Islands:</strong> Take a boat trip to these beautiful islets for secluded beaches and coves.</li>
+                <li><strong>Grapčeva Cave:</strong> Explore prehistoric cave drawings.</li>
+                <li><strong>Dubovica Beach:</strong> Relax at one of Hvar's most picturesque beaches.</li>
+            </ul>
+            <a href="../croatia.html" class="btn">Back to Blog</a>
         </section>
     </div>
     
@@ -259,7 +275,7 @@
             showSlide(currentIndex - 1);
         }
 
-        setInterval(nextSlide, 3000);
+        setInterval(nextSlide, 6000);
 
         function openFullImage(element) {
             const images = Array.from(document.querySelectorAll('.carousel-item img'));

@@ -168,25 +168,38 @@
             padding: 2rem;
             margin-top: 2rem;
         }
+        .btn {
+            display: inline-block;
+            background: #333;
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background: #555;
+        }
     </style>
 </head>
 
 <body>
     <nav>
         <ul>
-            <li><a href="/.../croatia.html">Home</a></li>
-            <li><a href="#description">About</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
             <li><a href="#photos">Gallery</a></li>
             <li><a href="#attractions">Attractions</a></li>
         </ul>
     </nav>
 
-    <header style="background: url('media/dubrovnik_70.jpg') no-repeat center center/cover;">
+    <header id="home" style="background: url('media/dubrovnik/dubrovnik_cove.jpg') no-repeat center center/cover;">
         <h1>Dubrovnik</h1>
     </header>
     
     <div class="container">
-        <section id="description">
+        <section id="about">
             <p class="meta">Published on July 15, 2024 | By Angel Padres</p>
 
             <p>Traversing the walls of Dubrovnik is the quintessential tourist activity, and there's good reason - you get to experience Dubrovnik from above, able to peer down into the city walls, and gaze out over the tranquil Adriatic Sea. While we were on the wall it started to rain, making the walkway frighteningly slick. Hundreds of years of footsteps have smoothed over the stone’s surface, making traction non-existent. Additionally, some parts of the wall are uncomfortably low for such walking conditions. We took refuge under the awning of a cafe on the wall, with a beer in hand, waiting the bulk of the storm out before continuing onward.</p>
@@ -220,14 +233,15 @@
 
 
         <section id="attractions" class="description">
-            <h2>Must-Visit Spots</h2>
+            <h2>Top Attractions in Dubrovnik</h2>
             <ul>
-                <li>City Walls - Walk the 2 km circuit for breathtaking views</li>
-                <li>Stradun - The main street of Dubrovnik, paved with limestone</li>
-                <li>Rector's Palace - Gothic-Renaissance palace now a city museum</li>
-                <li>Lokrum Island - A short ferry ride away, perfect for swimming and relaxation</li>
-                <li>Cable Car - Ride to the top of Srđ Hill for panoramic views</li>
+                <li><strong>City Walls:</strong> Walk the 2 km circuit for breathtaking views.</li>
+                <li><strong>Stradun:</strong> The main street of Dubrovnik, paved with limestone.</li>
+                <li><strong>Rector's Palace:</strong> Gothic-Renaissance palace now a city museum.</li>
+                <li><strong>Lokrum Island:</strong> A short ferry ride away, perfect for swimming and relaxation.</li>
+                <li><strong>Cable Car:</strong> Ride to the top of Srđ Hill for panoramic views.</li>
             </ul>
+            <a href="../croatia.html" class="btn">Back to Blog</a>
         </section>
     </div>
     
@@ -260,7 +274,7 @@
             showSlide(currentIndex - 1);
         }
 
-        setInterval(nextSlide, 3000);
+        setInterval(nextSlide, 6000);
 
         function openFullImage(element) {
             const images = Array.from(document.querySelectorAll('.carousel-item img'));

@@ -168,25 +168,38 @@
             padding: 2rem;
             margin-top: 2rem;
         }
+        .btn {
+            display: inline-block;
+            background: #333;
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background: #555;
+        }
     </style>
 </head>
 
 <body>
     <nav>
         <ul>
-            <li><a href="/.../croatia.html">Home</a></li>
-            <li><a href="#description">About</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
             <li><a href="#photos">Gallery</a></li>
             <li><a href="#attractions">Attractions</a></li>
         </ul>
     </nav>
 
-    <header style="background: url('media/brac/skrip.jpg') no-repeat center center/cover;">
+    <header id="home" style="background: url('media/brac/skrip.jpg') no-repeat center center/cover;">
         <h1>Brač</h1>
     </header>
     
     <div class="container">
-        <section id="description">
+        <section id="aboutn">
             <p class="meta">Published on July 15, 2024 | By Angel Padres</p>
 
             <p>We visited Brač on a national holiday, so much of the island was shuttered. Fortunately for us, the Olive Oil Museum in nearby Škrip was gracious to open for us and a few other groups. Our guide was welcoming and informative, with a quick wit that was both hysterical and entertaining. Seeing the original method used to make olive oil was fascinating, but learning more about olive oil itself was the most valuable part for me. Here in the United States, we know we have an issue with fake olive oil. Now, I feel like a much better-informed consumer. They have a tasting, and provide a gorgeous spread of olive oil, red wine vinegar, green and black olive tapenade, bread, fresh tomatoes, and wine.</p>
@@ -231,6 +244,7 @@
         <li><strong>Bol Old Town:</strong> A charming coastal town with Venetian-era architecture, perfect for leisurely strolls and seafood dinners.</li>
         <li><strong>Supetar:</strong> The largest town on the island, known for its beautiful beaches, vibrant harbor, and historical sites like the Church of Mary Annunciation.</li>
     </ul>       
+        <a href="../croatia.html" class="btn">Back to Blog</a>
         </section>
     </div>
     
@@ -263,7 +277,7 @@
             showSlide(currentIndex - 1);
         }
 
-        setInterval(nextSlide, 3000);
+        setInterval(nextSlide, 6000);
 
         function openFullImage(element) {
             const images = Array.from(document.querySelectorAll('.carousel-item img'));

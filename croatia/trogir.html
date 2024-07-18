@@ -168,25 +168,38 @@
             padding: 2rem;
             margin-top: 2rem;
         }
+        .btn {
+            display: inline-block;
+            background: #333;
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background: #555;
+        }
     </style>
 </head>
 
 <body>
     <nav>
         <ul>
-            <li><a href="/.../croatia.html">Home</a></li>
-            <li><a href="#description">About</a></li>
+            <li><a href="#home">Home</a></li> 
+            <li><a href="#about">About</a></li>
             <li><a href="#photos">Gallery</a></li>
             <li><a href="#attractions">Attractions</a></li>
         </ul>
     </nav>
 
-    <header style="background: url('media/trogir/trogir_waterfront.jpg') no-repeat center center/cover;">
+    <header id="home" style="background: url('media/trogir/trogir_waterfront.jpg') no-repeat center center/cover;">
         <h1>Trogir</h1>
     </header>
     
     <div class="container">
-        <section id="description">
+        <section id="about">
             <p class="meta">Published on July 15, 2024 | By Angel Padres</p>
 
         <p>As you wander through Trogir's narrow marble streets, you'll feel as if you've stepped back in time. The town's seafront promenade, lined with cafes and yachts, offers a perfect spot to relax and soak in the Mediterranean atmosphere. Don't miss the opportunity to climb the bell tower of St. Lawrence for panoramic views of the town and surrounding islands.</p>
@@ -234,13 +247,15 @@
         <section id="attractions" class="description">
             <h3>Top Attractions in Trogir</h3>
             <ul>
-                <li>Cathedral of St. Lawrence - A stunning example of Romanesque-Gothic architecture, featuring the famous Portal of Radovan.</li>
-                <li>Kamerlengo Fortress - 15th-century fortress offering panoramic views of the city and surrounding islands.</li>
-                <li>Cipiko Palace - Gothic-Renaissance palace complex showcasing exquisite Venetian architecture.</li>
-                <li>City Loggia - Renaissance-style open gallery that once served as a courtroom and public meeting place.</li>
-                <li>Trogir Historic Center - UNESCO World Heritage site with well-preserved medieval streets and architecture.</li>
+                <li><strong>Cathedral of St. Lawrence:</strong> A stunning example of Romanesque-Gothic architecture, featuring the famous Portal of Radovan.</li>
+                <li><strong>Kamerlengo Fortress:</strong> 15th-century fortress offering panoramic views of the city and surrounding islands.</li>
+                <li><strong>Cipiko Palace:</strong> Gothic-Renaissance palace complex showcasing exquisite Venetian architecture.</li>
+                <li><strong>City Loggia:</strong> Renaissance-style open gallery that once served as a courtroom and public meeting place.</li>
+                <li><strong>Trogir Historic Center:</strong> UNESCO World Heritage site with well-preserved medieval streets and architecture.</li>
             </ul>        
+            <a href="../croatia.html" class="btn">Back to Blog</a>
         </section>
+        
     </div>
     
     <footer>
@@ -272,7 +287,7 @@
             showSlide(currentIndex - 1);
         }
 
-        setInterval(nextSlide, 3000);
+        setInterval(nextSlide, 6000);
 
         function openFullImage(element) {
             const images = Array.from(document.querySelectorAll('.carousel-item img'));
