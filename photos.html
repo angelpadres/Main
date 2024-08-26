@@ -56,11 +56,12 @@
         margin: 2rem auto;
         padding: 0 1rem;
         flex-grow: 1;
+        margin-bottom: 60px; /* Add space for the footer */
     }
     .gallery {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 1.5rem;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 1rem;
     }
     .gallery-item {
         position: relative;
@@ -78,7 +79,7 @@
         height: 100%;
         object-fit: cover;
     }
-<!--    .gallery-item .overlay {
+    .gallery-item .overlay {
         position: absolute;
         bottom: 0;
         left: 0;
@@ -91,7 +92,7 @@
     }
     .gallery-item:hover .overlay {
         height: 100%;
-    }-->
+    }
     .gallery-item .text {
         color: white;
         font-size: 20px;
@@ -102,6 +103,12 @@
         text-align: center;
         width: 90%;
     }
+    .gallery-item:nth-child(1) { grid-column: span 6; }
+    .gallery-item:nth-child(2) { grid-column: span 3; }
+    .gallery-item:nth-child(3) { grid-column: span 3; }
+    .gallery-item:nth-child(4) { grid-column: span 4; }
+    .gallery-item:nth-child(5) { grid-column: span 4; }
+    .gallery-item:nth-child(6) { grid-column: span 4; }
     footer {
         background-color: #222;
         color: white;
@@ -115,7 +122,7 @@
 </head>
 <body>
     <header>
-        <h1>Angel Photography Portfolio</h1>
+        <h1>Angel Padres Photography Portfolio</h1>
     </header>
 <!--    <nav>
         <ul>
@@ -126,46 +133,46 @@
     </nav>-->
     <main>
         <section id="gallery" class="gallery">
-            <div class="gallery-item">
-                <img src="images/class_photos/portrait_photo.jpg" alt="A casual portrait. Photo by Angel Padres." width="400" height="250">
+            <div class="gallery-item" data-caption="A casual portrait.">
+                <img src="images/class_photos/portrait_photo.jpg" alt="Nathan Arcuri smiles for a portrait on August 25, 2024, at a park near his home in Henderson, Nevada. The casual portrait is the first assignment in a digital photography course at Colorado State University. Photo by Angel Padres." width="600" height="250">
                 <div class="overlay">
-                    <div class="text">Nathan Arcuri smiles for a portrait on August 25, 2024, at a park near his home in Henderson, Nevada. The casual portrait is the first assignment in a digital photography course at Colorado State University. Photo by Angel Padres.</div>
+                    <div class="text">A casual portrait. Photo by Angel Padres</div>
                 </div>
             </div>
-<!--            <div class="gallery-item">
+<!--            <div class="gallery-item" data-caption="Portrait of Wisdom">
                 <img src="images/portrait.jpg" alt="Close-up portrait of an elderly person with weathered features" width="300" height="250">
                 <div class="overlay">
-                    <div class="text">Wisdom Lines</div>
+                    <div class="text">Close-up portrait of an elderly person with weathered features</div>
                 </div>
             </div>
-            <div class="gallery-item">
-                <img src="images/street.jpg" alt="Busy city street at night with light trails from cars" width="400" height="250">
+            <div class="gallery-item" data-caption="City Lights in Motion">
+                <img src="images/street.jpg" alt="Busy city street at night with light trails from cars" width="300" height="250">
                 <div class="overlay">
-                    <div class="text">Urban Flow</div>
+                    <div class="text">Busy city street at night with light trails from cars</div>
                 </div>
             </div>
-            <div class="gallery-item">
-                <img src="images/nature.jpg" alt="Macro shot of a dewdrop on a vibrant green leaf" width="250" height="250">
+            <div class="gallery-item" data-caption="Nature's Jewel">
+                <img src="images/nature.jpg" alt="Macro shot of a dewdrop on a vibrant green leaf" width="400" height="250">
                 <div class="overlay">
-                    <div class="text">Morning Dew</div>
+                    <div class="text">Macro shot of a dewdrop on a vibrant green leaf</div>
                 </div>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item" data-caption="Urban Geometry">
                 <img src="images/abstract.jpg" alt="Abstract architectural detail of a modern building" width="400" height="250">
                 <div class="overlay">
-                    <div class="text">Geometric Dreams</div>
+                    <div class="text">Abstract architectural detail of a modern building</div>
                 </div>
             </div>
-            <div class="gallery-item">
-                <img src="images/wildlife.jpg" alt="A majestic eagle in flight against a blue sky" width="350" height="250">
+            <div class="gallery-item" data-caption="Soaring Freedom">
+                <img src="images/wildlife.jpg" alt="A majestic eagle in flight against a blue sky" width="400" height="250">
                 <div class="overlay">
-                    <div class="text">Freedom's Wing</div>
+                    <div class="text">A majestic eagle in flight against a blue sky</div>
                 </div>
             </div>-->
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 Angel Padres Student Photography Portfolio. All rights reserved.</p>
+        <p>© 2024 Angel Padres Photography Portfolio. All rights reserved.</p>
     </footer>
 
 <script>
@@ -173,16 +180,23 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const galleryItems = document.querySelectorAll('.gallery-item');
     
     galleryItems.forEach(item => {
+        const img = item.querySelector('img');
+        const overlay = item.querySelector('.overlay');
+        const text = overlay.querySelector('.text');
+        
+        // Set overlay text to the caption instead of alt text
+        text.textContent = item.dataset.caption;
+        
         item.addEventListener('click', () => {
-            const imgSrc = item.querySelector('img').src;
-            const imgAlt = item.querySelector('img').alt;
-            const imgTitle = item.querySelector('.text').innerText;
+            const imgSrc = img.src;
+            const imgAlt = img.alt;
+            const imgCaption = item.dataset.caption;
             
-            openModal(imgSrc, imgAlt, imgTitle);
+            openModal(imgSrc, imgAlt, imgCaption);
         });
     });
 
-    function openModal(src, alt, title) {
+    function openModal(src, alt, caption) {
         const modal = document.createElement('div');
         modal.style.position = 'fixed';
         modal.style.top = '0';
@@ -199,22 +213,42 @@ document.addEventListener('DOMContentLoaded', (event) => {
         modalContent.style.maxWidth = '90%';
         modalContent.style.maxHeight = '90%';
         modalContent.style.position = 'relative';
+        modalContent.style.display = 'flex';
+        modalContent.style.flexDirection = 'column';
+        modalContent.style.alignItems = 'center';
 
         const img = document.createElement('img');
         img.src = src;
         img.alt = alt;
         img.style.maxWidth = '100%';
-        img.style.maxHeight = '80vh';
+        img.style.maxHeight = '70vh';
         img.style.objectFit = 'contain';
+        img.style.marginBottom = '1rem';
 
-        const caption = document.createElement('p');
-        caption.textContent = title;
-        caption.style.color = 'white';
-        caption.style.textAlign = 'center';
-        caption.style.marginTop = '1rem';
+        const textContent = document.createElement('div');
+        textContent.style.overflowY = 'auto';
+        textContent.style.maxHeight = '20vh';
+        textContent.style.width = '100%';
+        textContent.style.textAlign = 'center';
+
+        const captionElement = document.createElement('p');
+        captionElement.textContent = caption;
+        captionElement.style.color = 'white';
+        captionElement.style.fontSize = '1.2rem';
+        captionElement.style.fontWeight = 'bold';
+        captionElement.style.margin = '0 0 0.5rem 0';
+
+        const descriptionElement = document.createElement('p');
+        descriptionElement.textContent = alt;
+        descriptionElement.style.color = '#ccc';
+        descriptionElement.style.fontSize = '1rem';
+        descriptionElement.style.margin = '0';
+
+        textContent.appendChild(captionElement);
+        textContent.appendChild(descriptionElement);
 
         modalContent.appendChild(img);
-        modalContent.appendChild(caption);
+        modalContent.appendChild(textContent);
         modal.appendChild(modalContent);
 
         modal.addEventListener('click', () => {
