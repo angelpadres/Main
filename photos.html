@@ -1,124 +1,182 @@
 <!DOCTYPE html>
 <html>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
-<head><html>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Photography Portfolio - Student Gallery</title>
-<style>
-    body, html {
-        margin: 0;
-        padding: 0;
-        font-family: 'Helvetica Neue', Arial, sans-serif;
-        background-color: #f0f0f0;
-        color: #333;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-    }
-    header {
-        background-color: #222;
-        color: white;
-        text-align: center;
-        padding: 2rem 0;
-    }
-    h1 {
-        margin: 0;
-        font-size: 2.5rem;
-        font-weight: 300;
-        letter-spacing: 2px;
-    }
-    nav {
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Portfolio - Student Gallery</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        nav {
         background-color: #333;
         padding: 1rem 0;
-    }
-    nav ul {
+        }
+        nav ul {
         list-style-type: none;
         padding: 0;
         margin: 0;
         display: flex;
         justify-content: center;
-    }
-    nav ul li {
+        }
+        nav ul li {
         margin: 0 1rem;
-    }
-    nav ul li a {
-        color: white;
-        text-decoration: none;
-        font-size: 1.1rem;
-        transition: color 0.3s ease;
-    }
-    nav ul li a:hover {
-        color: #ffd700;
-    }
-    main {
-        max-width: 1200px;
-        margin: 2rem auto;
-        padding: 0 1rem;
-        flex-grow: 1;
-        margin-bottom: 60px; /* Add space for the footer */
-    }
-    .gallery {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        gap: 1rem;
-    }
-    .gallery-item {
-        position: relative;
-        overflow: hidden;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        transition: transform 0.3s ease;
-        height: 250px; /* Fixed height for all gallery items */
-    }
-    .gallery-item:hover {
-        transform: scale(1.05);
-    }
-    .gallery-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-    .gallery-item .overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-color: rgba(0,0,0,0.7);
-        overflow: hidden;
-        width: 100%;
-        height: 0;
-        transition: .5s ease;
-    }
-    .gallery-item:hover .overlay {
-        height: 100%;
-    }
-    .gallery-item .text {
-        color: white;
-        font-size: 20px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        width: 90%;
-    }
-    .gallery-item:nth-child(1) { grid-column: span 6; }
-    .gallery-item:nth-child(2) { grid-column: span 3; }
-    .gallery-item:nth-child(3) { grid-column: span 3; }
-    .gallery-item:nth-child(4) { grid-column: span 4; }
-    .gallery-item:nth-child(5) { grid-column: span 4; }
-    .gallery-item:nth-child(6) { grid-column: span 4; }
-    footer {
-        background-color: #222;
-        color: white;
-        text-align: center;
-        padding: 1rem 0;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-    }
-</style>
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            flex-grow: 1;
+            margin-bottom: 60px; /* Add space for the footer */
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1rem;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            height: 250px; /* Fixed height for all gallery items */
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .gallery-item .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0,0,0,0.7);
+            overflow: hidden;
+            width: 100%;
+            height: 0;
+            transition: .5s ease;
+        }
+        .gallery-item:hover .overlay {
+            height: 100%;
+        }
+        .gallery-item .text {
+            color: white;
+            font-size: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 90%;
+        }
+        .gallery-item:nth-child(1) { grid-column: span 6; }
+        .gallery-item:nth-child(2) { grid-column: span 3; }
+        .gallery-item:nth-child(3) { grid-column: span 3; }
+        .gallery-item:nth-child(4) { grid-column: span 4; }
+        .gallery-item:nth-child(5) { grid-column: span 4; }
+        .gallery-item:nth-child(6) { grid-column: span 4; }
+        
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Modal Styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            margin-bottom: 1rem;
+        }
+
+        .modal-text {
+            overflow-y: auto;
+            max-height: 20vh;
+            width: 100%;
+            text-align: center;
+        }
+
+        .modal-text p {
+            color: white;
+            margin: 0;
+        }
+
+        .modal-caption {
+            font-size: 1.2rem;
+            font-weight: lighter;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-details {
+            color: #ccc;
+            font-size: 0.75rem;
+            font-style: italic;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -133,10 +191,10 @@
     </nav>-->
     <main>
         <section id="gallery" class="gallery">
-            <div class="gallery-item" data-caption="A casual portrait.">
-                <img src="images/class_photos/portrait_photo.jpg" alt="Nathan Arcuri smiles for a portrait on August 25, 2024, at a park near his home in Henderson, Nevada. The casual portrait is the first assignment in a digital photography course at Colorado State University. Photo by Angel Padres." width="600" height="250">
+            <div class="gallery-item" data-details="30mm | 1/200 | f/8 | ISO 800" data-caption="Nathan Arcuri smiles for a portrait on August 25, 2024, at a park in Henderson, Nevada. The casual portrait is the first assignment in a digital photography course at Colorado State University.">
+                <img src="images/class_photos/portrait_photo.jpg" alt="" width="600" height="250">
                 <div class="overlay">
-                    <div class="text">A casual portrait. Photo by Angel Padres</div>
+                    <div class="text">A casual portrait.</div>
                 </div>
             </div>
 <!--            <div class="gallery-item" data-caption="Portrait of Wisdom">
@@ -184,68 +242,43 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const overlay = item.querySelector('.overlay');
         const text = overlay.querySelector('.text');
         
-        // Set overlay text to the caption instead of alt text
-        text.textContent = item.dataset.caption;
+                // Set overlay text to a static message or different content if needed
+            //    text.textContent = "Overlay Text Here"; // Replace with desired overlay text
         
         item.addEventListener('click', () => {
             const imgSrc = img.src;
             const imgAlt = img.alt;
             const imgCaption = item.dataset.caption;
-            
-            openModal(imgSrc, imgAlt, imgCaption);
+            const imgDetails = item.dataset.details;
+                    
+            openModal(imgSrc, imgAlt, imgCaption, imgDetails);
         });
     });
 
-    function openModal(src, alt, caption) {
+    function openModal(src, alt, caption, details) {
         const modal = document.createElement('div');
-        modal.style.position = 'fixed';
-        modal.style.top = '0';
-        modal.style.left = '0';
-        modal.style.width = '100%';
-        modal.style.height = '100%';
-        modal.style.backgroundColor = 'rgba(0,0,0,0.9)';
-        modal.style.display = 'flex';
-        modal.style.alignItems = 'center';
-        modal.style.justifyContent = 'center';
-        modal.style.zIndex = '1000';
+        modal.className = 'modal';
 
         const modalContent = document.createElement('div');
-        modalContent.style.maxWidth = '90%';
-        modalContent.style.maxHeight = '90%';
-        modalContent.style.position = 'relative';
-        modalContent.style.display = 'flex';
-        modalContent.style.flexDirection = 'column';
-        modalContent.style.alignItems = 'center';
+        modalContent.className = 'modal-content';
 
         const img = document.createElement('img');
         img.src = src;
         img.alt = alt;
-        img.style.maxWidth = '100%';
-        img.style.maxHeight = '70vh';
-        img.style.objectFit = 'contain';
-        img.style.marginBottom = '1rem';
 
         const textContent = document.createElement('div');
-        textContent.style.overflowY = 'auto';
-        textContent.style.maxHeight = '20vh';
-        textContent.style.width = '100%';
-        textContent.style.textAlign = 'center';
+        textContent.className = 'modal-text';
 
         const captionElement = document.createElement('p');
+        captionElement.className = 'modal-caption';
         captionElement.textContent = caption;
-        captionElement.style.color = 'white';
-        captionElement.style.fontSize = '1.2rem';
-        captionElement.style.fontWeight = 'bold';
-        captionElement.style.margin = '0 0 0.5rem 0';
 
-        const descriptionElement = document.createElement('p');
-        descriptionElement.textContent = alt;
-        descriptionElement.style.color = '#ccc';
-        descriptionElement.style.fontSize = '1rem';
-        descriptionElement.style.margin = '0';
+        const detailsElement = document.createElement('p');
+        detailsElement.className = 'modal-details';
+        detailsElement.textContent = details;
 
+        textContent.appendChild(detailsElement);
         textContent.appendChild(captionElement);
-        textContent.appendChild(descriptionElement);
 
         modalContent.appendChild(img);
         modalContent.appendChild(textContent);
