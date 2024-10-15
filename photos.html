@@ -7,6 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photography Portfolio - Student Gallery</title>
     <style>
+        
+        /* Reset margins and paddings */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body, html {
             margin: 0;
             padding: 0;
@@ -16,13 +24,24 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            width: 100%; /* Ensure the body takes the full width */
         }
 
+        /* Make sure header spans full width */
         header {
             background-color: #222;
             color: white;
             text-align: center;
             padding: 2rem 0;
+            width: 100%; /* Ensure header takes full width */
+        }
+
+        /* Ensure other elements respect the full width */
+        main {
+            width: 100%; /* Ensures content adjusts properly on smaller screens */
+            margin: 2rem auto;
+            padding: 0 1rem;
+            flex-grow: 1;
         }
 
         h1 {
