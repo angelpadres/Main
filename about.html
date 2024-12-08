@@ -1,47 +1,238 @@
 <!DOCTYPE html>
 <html>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
 <head>
-<meta charset="utf-8">
-<meta name="width=device-width, initial-scale=1" name="viewport">
-<title>Angel Padres Portfolio</title>
-<link href='https://fonts.googleapis.com/css?family=Quattrocento Sans' rel='stylesheet'>
-<link rel="stylesheet" href="style.css">
-<style>
-  img {
-    float: left;
-    margin-right: 1em;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angel Padres Portfolio</title>
+
+    <style>
+        /* Reset margins and paddings */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            width: 100%; /* Ensure the body takes the full width */
+        }
+        /* Make sure header spans full width */
+        header {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            width: 100%; /* Ensure header takes full width */
+        }
+        h1 {
+          margin: 0;
+          font-size: 2.5rem;
+          font-weight: 300;
+          letter-spacing: 2px;
+        }
+        nav {
+          background-color: #333;
+          padding: 1rem 0;
+        }
+        nav ul {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          justify-content: center;
+        }
+        nav ul li {
+          margin: 0 1rem;
+        }
+        nav ul li a {
+          color: white;
+          text-decoration: none;
+          font-size: 1.1rem;
+          transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+          color: #C59AEA;
+        }
+        nav .active_page {
+          color: #7785AC;
+        }
+        main {
+          max-width: 900px;
+          margin: 2rem auto;
+          padding: 2rem;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+          flex-grow: 1;
+          margin-bottom: 60px;
+        }
+        .about-content {
+          display: grid;
+          grid-template-columns: 1fr 2fr;
+          gap: 2rem;
+          align-items: start;
+        }
+        .profile-image {
+          width: 100%;
+          border-radius: 10px;
+          box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .bio {
+          line-height: 1.6;
+        }
+        .bio h2 {
+          color: #222;
+          margin-bottom: 1rem;
+        }
+        .skills {
+          margin-top: 2rem;
+        }
+        .skills h3 {
+          color: #444;
+          margin-bottom: 1rem;
+        }
+        .skill-tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+        }
+        .skill-tag {
+          background-color: #eee;
+          padding: 0.5rem 1rem;
+          border-radius: 20px;
+          font-size: 0.9rem;
+        }
+        .education {
+          margin-top: 2rem;
+        }
+        .education h3 {
+          color: #444;
+          margin-bottom: 1rem;
+        }
+        .education-item {
+          margin-bottom: 1rem;
+        }
+        .year {
+          color: #666;
+          font-size: 0.9rem;
+        }
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            font-size: 0.5rem;
+            padding: 0.5rem 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+          .about-content {
+            grid-template-columns: 1fr;
+          }
+          .profile-image {
+            max-width: 300px;
+            margin: 0 auto;
+          }
+        }
+    </style>
 </head>
 
 <body>
 
-
 <header>
-<h1>About Me</h1>
+  <h1>About Me</h1>
+</header> 
 
 <nav>
-  <a href="index.html">Home</a>
-  <a href="" div class="active_page">About</a>
-  <a href="writing.html">Writing</a>
-  <a href="photos.html">Photos</a>
-  <!--<a href="media.html">Media</a>
-  <a href="resume.html">Resume</a>-->
-  <a href="contact.html">Contact</a>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="" div class="active_page">About</a></li>
+    <li><a href="writing.html">Writing</a></li>
+    <li><a href="photos.html">Photos</a></li>
+    <!--<li><a href="media.html">Media</a></li>
+    <li><a href="resume.html">Resume</a></li>-->
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
 </nav>
-</header>
 
-<div id="about">
+<main>
+  <div class="about-content">
+      <div class="profile">
+            <style>
+        @media (min-width: 769px) {
+            .profile {
+                justify-self: start;
+                width: 100%;
+            }
+            .profile-image {
+                width: 100%;
+                display: block;
+            }
+        }
+        @media (max-width: 768px) {
+            .profile {
+                width: 100%;
+                justify-content: center;
+            }
+            .profile-image {
+                height: auto;
+                display: block;
+            }
+        }
+    </style>
+        <img src="images/ap.png" alt="A photo of Angel Padres"class="profile-image">
+      </div>
 
-  <img src="images/ap.png" alt="A photo of Angel Padres">
-  <p>Angelique Padres, a forward-thinking student at Colorado State University, is pursuing a multifaceted education, majoring in Journalism and Media Communications while minoring in Sociology and Interdisciplinary Information Science and Technology. Her academic journey is enriched by her Associate’s Degree in Paralegal Studies, reflecting her diverse interests and dedication to continuous learning.<br><br>
-Known as Angel by friends and peers, she is renowned for her ability to optimize processes and introduce innovative solutions to enhance efficiency. Located just outside of Las Vegas, Angel finds inspiration in the city’s dynamic atmosphere, fueling her aspirations for frequent travel and lifelong learning.<br><br>
-Beyond her academic pursuits, Angel is deeply committed to giving back to her community. Through volunteering, she leverages her skills to make a positive impact in the lives of others, embodying her belief in the power of service and compassion.</p>
+      <div class="bio"">
+        <p>Angelique 'Angel' Padres, a dedicated student at Colorado State University, is majoring in Journalism and Media Communications, with minors in Sociology and Interdisciplinary Information Science and Technology. She also holds an Associate’s Degree in Paralegal Studies, showcasing her diverse interests and commitment to learning.<br><br>
+        Angel excels in optimizing processes and introducing innovative solutions. Based near Las Vegas, she draws inspiration from the city’s vibrant energy, fueling her passion for travel and lifelong learning.<br><br>
+        Outside of her studies, Angel is committed to community service. Through volunteering, she uses her skills to positively impact others, reflecting her belief in the importance of giving back.</p>
+        
+        
+        <!--<div class="skills">
+          <h3>Specialties</h3>
+          <div class="skill-tags">
+              <span class="skill-tag">Portrait Photography</span>
+              <span class="skill-tag">Landscape Photography</span>
+              <span class="skill-tag">Street Photography</span>
+              <span class="skill-tag">Digital Editing</span>
+              <span class="skill-tag">Studio Lighting</span>
+              <span class="skill-tag">Event Coverage</span>
+          </div>
+      </div>
+
+      <div class="education">
+          <h3>Education & Achievements</h3>
+          <div class="education-item">
+              <strong>BFA in Photography</strong><br>
+              <span class="year">School of Visual Arts, New York (2018-2022)</span>
+          </div>
+          <div class="education-item">
+              <strong>Advanced Digital Photography Certificate</strong><br>
+              <span class="year">International Center of Photography (2021)</span>
+          </div>
+          <div class="education-item">
+              <strong>First Place - Young Photographers Competition 2022</strong><br>
+              <span class="year">National Geographic</span>
+          </div>-->
+      </div>
+  </div>
 </div>
-
-
-</body>
+</main>
 
 <footer>&copy; Copyright 2024 Angel Padres</footer>
+
+</body>
 </html>
