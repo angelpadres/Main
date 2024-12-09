@@ -88,20 +88,20 @@
         </section>
 
 
-        <section id="gallery" class="gallery">
+        <section id="gallery" class="gallery gallery-item:nth-child(1)">
             <div class="gallery-item" data-details="18mm | 1/500 | f/5.6 | ISO 800" data-caption="Tigger gave Tsuna a huge hug when she met him at Disneyland on November 29, 2024. Photo by Angel Padres.">
                 <img src="images/class_photos/pe_tigger.jpg" alt="" width="600" height="250">
                     <div class="overlay">
                         <div class="text"></div>
                     </div>
             </div>
-            <div class="gallery-item" data-details="18mm | 1/80 | f/3.5 | ISO 6400" data-caption="Tsuna dipping a piece of her Mickey Mouse pretzel in cheese dip, enjoying a snack before meeting more Disney characters at Disneyland on November 29, 2024. Photo by Angel Padres.">
+            <div class="gallery-item gallery-item:nth-child(2)" data-details="18mm | 1/80 | f/3.5 | ISO 6400" data-caption="Tsuna dipping a piece of her Mickey Mouse pretzel in cheese dip, enjoying a snack before meeting more Disney characters at Disneyland on November 29, 2024. Photo by Angel Padres.">
                 <img src="images/class_photos/pe_snack.jpg" alt="" width="600" height="250">
                     <div class="overlay">
                         <div class="text"></div>
                     </div>
             </div>
-            <div class="gallery-item" data-details="21mm | 1/10 | f/3.5 | ISO 6400" data-caption="Tsuna got to meet her favorite Disney character, Daisy Duck, at Disneyland on November 29, 2024. Photo by Angel Padres.">
+            <div class="gallery-item gallery-item:nth-child(3)" data-details="21mm | 1/10 | f/3.5 | ISO 6400" data-caption="Tsuna got to meet her favorite Disney character, Daisy Duck, at Disneyland on November 29, 2024. Photo by Angel Padres.">
                 <img src="images/class_photos/pe_daisy.jpg" alt="" width="600" height="250">
                     <div class="overlay">
                         <div class="text"></div>
@@ -120,20 +120,20 @@
 
 
 
-        <section id="gallery" class="gallery">
+        <section id="gallery" class="gallery gallery-item:nth-child(4)">
             <div class="gallery-item" data-details="18mm | 1/25 | f/3.5 | ISO 6400" data-caption="Tsuna watching the fireworks at Disneyland castle atop her dad's shoulders on November 29, 2024. Photo by Angel Padres.">
                 <img src="images/class_photos/pe_fireworks.jpg" alt="" width="600" height="250">
                     <div class="overlay">
                         <div class="text">Photo Essay</div>
                     </div>
             </div>
-            <div class="gallery-item" data-details="25mm | 1/25 | f/4 | ISO 6400" data-caption="It was really hard for Tsuna to stay awake for the Disneyland fireworks show, and she fell asleep right afterward on November 29, 2024. Photo by Angel Padres">
+            <div class="gallery-item gallery-item:nth-child(5)" data-details="25mm | 1/25 | f/4 | ISO 6400" data-caption="It was really hard for Tsuna to stay awake for the Disneyland fireworks show, and she fell asleep right afterward on November 29, 2024. Photo by Angel Padres">
                 <img src="images/class_photos/pe_sleep.jpg" alt="" width="600" height="250">
                     <div class="overlay">
                         <div class="text"></div>
                     </div>
             </div>
-            <div class="gallery-item" data-details="18mm | 1/25 | f/3.5 | ISO 6400" data-caption="Princess Tsuna at the end of an exciting day, asleep in her stroller in front of the Disneyland castle on the last day of her first visit on November 29, 2024. Photo taken by Angel Padres.">
+            <div class="gallery-item gallery-item:nth-child(6)" data-details="18mm | 1/25 | f/3.5 | ISO 6400" data-caption="Princess Tsuna at the end of an exciting day, asleep in her stroller in front of the Disneyland castle on the last day of her first visit on November 29, 2024. Photo taken by Angel Padres.">
                 <img src="images/class_photos/pe_sleep_castle.jpg" alt="" width="600" height="250">
                     <div class="overlay">
                         <div class="text"></div>
@@ -151,6 +151,20 @@
 
 <style>
     /* Define spans for each item in the default view */
+.gallery-item:nth-child(1) { grid-column: span 8; }
+.gallery-item:nth-child(2) { grid-column: span 8; }
+.gallery-item:nth-child(3) { grid-column: span 8; }
+.gallery-item:nth-child(4) { grid-column: span 10; }
+.gallery-item:nth-child(5) { grid-column: span 7; }
+.gallery-item:nth-child(6) { grid-column: span 7; }
+.gallery-item:nth-child(7) { grid-column: span 5; }
+.gallery-item:nth-child(8) { grid-column: span 7; }
+.gallery-item:nth-child(9) { grid-column: span 10; }
+.gallery-item:nth-child(10) { grid-column: span 7; }
+
+
+    /* Define spans for different screen sizes */
+@media (max-width: 900px) {
     .gallery-item:nth-child(1) { grid-column: span 8; }
     .gallery-item:nth-child(2) { grid-column: span 8; }
     .gallery-item:nth-child(3) { grid-column: span 8; }
@@ -161,47 +175,33 @@
     .gallery-item:nth-child(8) { grid-column: span 7; }
     .gallery-item:nth-child(9) { grid-column: span 10; }
     .gallery-item:nth-child(10) { grid-column: span 7; }
+}
 
+@media (max-width: 600px) {
+    .gallery-item:nth-child(1) { grid-column: span 4; }
+    .gallery-item:nth-child(2) { grid-column: span 4; }
+    .gallery-item:nth-child(3) { grid-column: span 4; }
+    .gallery-item:nth-child(4) { grid-column: span 6; }
+    .gallery-item:nth-child(5) { grid-column: span 3; }
+    .gallery-item:nth-child(6) { grid-column: span 3; }
+    .gallery-item:nth-child(7) { grid-column: span 2; }
+    .gallery-item:nth-child(8) { grid-column: span 3; }
+    .gallery-item:nth-child(9) { grid-column: span 6; }
+    .gallery-item:nth-child(10) { grid-column: span 3; }
+}
 
-    /* Define spans for different screen sizes */
-    @media (max-width: 900px) {
-        .gallery-item:nth-child(1) { grid-column: span 8; }
-        .gallery-item:nth-child(2) { grid-column: span 8; }
-        .gallery-item:nth-child(3) { grid-column: span 8; }
-        .gallery-item:nth-child(4) { grid-column: span 10; }
-        .gallery-item:nth-child(5) { grid-column: span 7; }
-        .gallery-item:nth-child(6) { grid-column: span 7; }
-        .gallery-item:nth-child(7) { grid-column: span 5; }
-        .gallery-item:nth-child(8) { grid-column: span 7; }
-        .gallery-item:nth-child(9) { grid-column: span 10; }
-        .gallery-item:nth-child(10) { grid-column: span 7; }
-    }
-
-    @media (max-width: 600px) {
-        .gallery-item:nth-child(1) { grid-column: span 3; }
-        .gallery-item:nth-child(2) { grid-column: span 3; }
-        .gallery-item:nth-child(3) { grid-column: span 3; }
-        .gallery-item:nth-child(4) { grid-column: span 6; }
-        .gallery-item:nth-child(5) { grid-column: span 3; }
-        .gallery-item:nth-child(6) { grid-column: span 3; }
-        .gallery-item:nth-child(7) { grid-column: span 2; }
-        .gallery-item:nth-child(8) { grid-column: span 3; }
-        .gallery-item:nth-child(9) { grid-column: span 6; }
-        .gallery-item:nth-child(10) { grid-column: span 3; }
-    }
-
-    @media (max-width: 480px) {
-        .gallery-item:nth-child(1) { grid-column: span 3; }
-        .gallery-item:nth-child(2) { grid-column: span 3; } 
-        .gallery-item:nth-child(3) { grid-column: span 3; }
-        .gallery-item:nth-child(4) { grid-column: span 6; }
-        .gallery-item:nth-child(5) { grid-column: span 3; }
-        .gallery-item:nth-child(6) { grid-column: span 3; }
-        .gallery-item:nth-child(7) { grid-column: span 2; }
-        .gallery-item:nth-child(8) { grid-column: span 3; }
-        .gallery-item:nth-child(9) { grid-column: span 6; }
-        .gallery-item:nth-child(10) { grid-column: span 3; }
-    }
+@media (max-width: 480px) {
+    .gallery-item:nth-child(1) { grid-column: span 4; }
+    .gallery-item:nth-child(2) { grid-column: span 4; } 
+    .gallery-item:nth-child(3) { grid-column: span 4; }
+    .gallery-item:nth-child(4) { grid-column: span 6; }
+    .gallery-item:nth-child(5) { grid-column: span 3; }
+    .gallery-item:nth-child(6) { grid-column: span 3; }
+    .gallery-item:nth-child(7) { grid-column: span 2; }
+    .gallery-item:nth-child(8) { grid-column: span 3; }
+    .gallery-item:nth-child(9) { grid-column: span 6; }
+    .gallery-item:nth-child(10) { grid-column: span 3; }
+}
 </style>
 
 <script src="script.js"></script>

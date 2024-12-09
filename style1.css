@@ -78,17 +78,17 @@ footer {
 
 @media (max-width:900px) {
     main {
-        width: 75%;
+        width: 75vw;
     }
 }
 @media (max-width:600px) {
     main {
-        width: 75%;
+        width: 85vw;
     }
 }
 @media (max-width: 480px) {
     main {
-        width: 75%;
+        width: 90vw;
     }
 }
 
@@ -279,10 +279,6 @@ footer {
     grid-template-columns: repeat(24, 1fr);
     gap: 1rem;
 }
-
-#gallery {
-    
-}
 .gallery-item {
     position: relative;
     overflow: hidden;
@@ -411,6 +407,12 @@ footer {
 .essay-image.gallery-item {
     display: flex;
     margin: 1rem;
+}
+
+.photo-essay::after {
+    content: "";
+    display: block;
+    clear: both;
 }
 
 
