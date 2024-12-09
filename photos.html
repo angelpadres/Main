@@ -1,432 +1,33 @@
 <!DOCTYPE html>
-<html>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Angel Padres Portfolio</title>
-
-    <style> 
-        /* Reset margins and paddings */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Montserrat', sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            width: 100%; /* Ensure the body takes the full width */
-        }
-
-        /* Make sure header spans full width */
-        header {
-            background-color: #222;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            width: 100%; /* Ensure header takes full width */
-        }
-
-        /* Ensure other elements respect the full width */
-        main {
-            width: 100%; /* Ensures content adjusts properly on smaller screens */
-            margin: 2rem auto;
-            padding: 0 1rem;
-            flex-grow: 1;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            font-weight: 300;
-            letter-spacing: 2px;
-        }
-        nav {
-            background-color: #333;
-            padding: 1rem 0;
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-        }
-        nav ul li {
-            margin: 0 1rem;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: color 0.3s ease;
-        }
-        nav ul li a:hover {
-            color: #C59AEA;
-        }
-        main {
-            width: 80%;
-            margin: 2rem auto;
-            padding: 0 1rem;
-            flex-grow: 1;
-            margin-bottom: 60px; /* Add space for the footer */
-        }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(24, 1fr);
-            gap: 1rem;
-        }
-        @media (max-width:900px) {
-            .gallery {
-                grid-template-columns: repeat(24, 1fr);
-            }
-            main {
-                width: 97%;
-            }
-        }
-        @media (max-width:600px) {
-            .gallery {
-                grid-template-columns: repeat(12, 1fr);
-            }
-            main {
-                width: 97%;
-            }
-        }
-        @media (max-width: 480px) {
-            .gallery {
-                grid-template-columns: repeat(12, 1fr);
-            }
-            main {
-                width: 97%;
-            }
-        }
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            height: 250px; /* Fixed height for all gallery items */
-        }
-        .gallery-item:hover {
-            transform: scale(1.05);
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .gallery-item .overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: rgba(0,0,0,0.7);
-            overflow: hidden;
-            width: 100%;
-            height: 0;
-            transition: .5s ease;
-        }
-        .gallery-item:hover .overlay {
-            height: 100%;
-        }
-        .gallery-item .text {
-            color: white;
-            font-size: 20px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            width: 90%;
-        }
-
-        .video-item .overlay {
-            display: none;
-        }
-        /* Define spans for each item in the default view */
-        .gallery-item:nth-child(1) { grid-column: span 8; }
-        .gallery-item:nth-child(2) { grid-column: span 8; }
-        .gallery-item:nth-child(3) { grid-column: span 8; }
-        .gallery-item:nth-child(4) { grid-column: span 5; }
-        .gallery-item:nth-child(5) { grid-column: span 9; }
-        .gallery-item:nth-child(6) { grid-column: span 5; }
-        .gallery-item:nth-child(7) { grid-column: span 5; }
-        .gallery-item:nth-child(8) { grid-column: span 10; }
-        .gallery-item:nth-child(9) { grid-column: span 7; }
-        .gallery-item:nth-child(10) { grid-column: span 7; }
-        .gallery-item:nth-child(11) { grid-column: span 6; }
-        .gallery-item:nth-child(12) { grid-column: span 6; }
-        .gallery-item:nth-child(13) { grid-column: span 6; }
-        .gallery-item:nth-child(14) { grid-column: span 6; }
-        .gallery-item:nth-child(15) { grid-column: span 10; }
-        .gallery-item:nth-child(16) { grid-column: span 14; }
-        .gallery-item:nth-child(17) { grid-column: span 12; }
-        .gallery-item:nth-child(18) { grid-column: span 12; }
-        .gallery-item:nth-child(19) { grid-column: span 4; }
-        .gallery-item:nth-child(20) { grid-column: span 4; }
-        .gallery-item:nth-child(21) { grid-column: span 8; }
-        .gallery-item:nth-child(22) { grid-column: span 4; }
-        .gallery-item:nth-child(23) { grid-column: span 4; }
-        .gallery-item:nth-child(24) { grid-column: span 8; }
-        .gallery-item:nth-child(25) { grid-column: span 8; }
-        .gallery-item:nth-child(26) { grid-column: span 8; }
-        .gallery-item:nth-child(27) { grid-column: span 12; }
-        .gallery-item:nth-child(28) { grid-column: span 12; }
-        .gallery-item:nth-child(29) { grid-column: span 7; }
-        .gallery-item:nth-child(30) { grid-column: span 7; }
-        .gallery-item:nth-child(31) { grid-column: span 10; }
-        /* Define spans for different screen sizes */
-        @media (max-width: 900px) {
-            .gallery-item:nth-child(1) { grid-column: span 8; }
-            .gallery-item:nth-child(2) { grid-column: span 8; }
-            .gallery-item:nth-child(3) { grid-column: span 8; }
-            .gallery-item:nth-child(4) { grid-column: span 5; }
-            .gallery-item:nth-child(5) { grid-column: span 9; }
-            .gallery-item:nth-child(6) { grid-column: span 5; }
-            .gallery-item:nth-child(7) { grid-column: span 5; }
-            .gallery-item:nth-child(8) { grid-column: span 10; }
-            .gallery-item:nth-child(9) { grid-column: span 7; }
-            .gallery-item:nth-child(10) { grid-column: span 7; }
-            .gallery-item:nth-child(11) { grid-column: span 6; }
-            .gallery-item:nth-child(12) { grid-column: span 6; }
-            .gallery-item:nth-child(13) { grid-column: span 6; }
-            .gallery-item:nth-child(14) { grid-column: span 6; }
-            .gallery-item:nth-child(15) { grid-column: span 10; }
-            .gallery-item:nth-child(16) { grid-column: span 14; }
-            .gallery-item:nth-child(17) { grid-column: span 12; }
-            .gallery-item:nth-child(18) { grid-column: span 12; }
-            .gallery-item:nth-child(19) { grid-column: span 4; }
-            .gallery-item:nth-child(20) { grid-column: span 4; }
-            .gallery-item:nth-child(21) { grid-column: span 8; }
-            .gallery-item:nth-child(22) { grid-column: span 4; }
-            .gallery-item:nth-child(23) { grid-column: span 4; }
-            .gallery-item:nth-child(24) { grid-column: span 8; }
-            .gallery-item:nth-child(25) { grid-column: span 8; }
-            .gallery-item:nth-child(26) { grid-column: span 8; }
-            .gallery-item:nth-child(27) { grid-column: span 12; }
-            .gallery-item:nth-child(28) { grid-column: span 12; }
-            .gallery-item:nth-child(29) { grid-column: span 7; }
-            .gallery-item:nth-child(30) { grid-column: span 7; }
-            .gallery-item:nth-child(31) { grid-column: span 10; }
-        }
-
-        @media (max-width: 600px) {
-            .gallery-item:nth-child(1) { grid-column: span 4; }
-            .gallery-item:nth-child(2) { grid-column: span 4; }
-            .gallery-item:nth-child(3) { grid-column: span 4; }
-            .gallery-item:nth-child(4) { grid-column: span 2; }
-            .gallery-item:nth-child(5) { grid-column: span 6; }
-            .gallery-item:nth-child(6) { grid-column: span 2; }
-            .gallery-item:nth-child(7) { grid-column: span 2; }
-            .gallery-item:nth-child(8) { grid-column: span 6; }
-            .gallery-item:nth-child(9) { grid-column: span 3; }
-            .gallery-item:nth-child(10) { grid-column: span 3; }
-            .gallery-item:nth-child(11) { grid-column: span 3; }
-            .gallery-item:nth-child(12) { grid-column: span 3; }
-            .gallery-item:nth-child(13) { grid-column: span 3; }
-            .gallery-item:nth-child(14) { grid-column: span 3; }
-            .gallery-item:nth-child(15) { grid-column: span 5; }
-            .gallery-item:nth-child(16) { grid-column: span 7; }
-            .gallery-item:nth-child(17) { grid-column: span 6; }
-            .gallery-item:nth-child(18) { grid-column: span 6; }
-            .gallery-item:nth-child(19) { grid-column: span 2; }
-            .gallery-item:nth-child(20) { grid-column: span 2; }
-            .gallery-item:nth-child(21) { grid-column: span 4; }
-            .gallery-item:nth-child(22) { grid-column: span 2; }
-            .gallery-item:nth-child(23) { grid-column: span 2; }
-            .gallery-item:nth-child(24) { grid-column: span 4; }
-            .gallery-item:nth-child(25) { grid-column: span 4; }
-            .gallery-item:nth-child(26) { grid-column: span 4; }
-            .gallery-item:nth-child(27) { grid-column: span 6; }
-            .gallery-item:nth-child(28) { grid-column: span 6; }
-            .gallery-item:nth-child(29) { grid-column: span 3; }
-            .gallery-item:nth-child(30) { grid-column: span 3; }
-            .gallery-item:nth-child(31) { grid-column: span 6; }
-        }
-
-        @media (max-width: 480px) {
-            .gallery-item:nth-child(1) { grid-column: span 4; }
-            .gallery-item:nth-child(2) { grid-column: span 4; }
-            .gallery-item:nth-child(3) { grid-column: span 4; }
-            .gallery-item:nth-child(4) { grid-column: span 2; }
-            .gallery-item:nth-child(5) { grid-column: span 6; }
-            .gallery-item:nth-child(6) { grid-column: span 2; }
-            .gallery-item:nth-child(7) { grid-column: span 2; }
-            .gallery-item:nth-child(8) { grid-column: span 6; }
-            .gallery-item:nth-child(9) { grid-column: span 3; }
-            .gallery-item:nth-child(10) { grid-column: span 3; }
-            .gallery-item:nth-child(11) { grid-column: span 3; }
-            .gallery-item:nth-child(12) { grid-column: span 3; }
-            .gallery-item:nth-child(13) { grid-column: span 3; }
-            .gallery-item:nth-child(14) { grid-column: span 3; }
-            .gallery-item:nth-child(15) { grid-column: span 5; }
-            .gallery-item:nth-child(16) { grid-column: span 7; }
-            .gallery-item:nth-child(17) { grid-column: span 6; }
-            .gallery-item:nth-child(18) { grid-column: span 6; }
-            .gallery-item:nth-child(19) { grid-column: span 2; }
-            .gallery-item:nth-child(20) { grid-column: span 2; }
-            .gallery-item:nth-child(21) { grid-column: span 4; }
-            .gallery-item:nth-child(22) { grid-column: span 2; }
-            .gallery-item:nth-child(23) { grid-column: span 2; }
-            .gallery-item:nth-child(24) { grid-column: span 4; }
-            .gallery-item:nth-child(25) { grid-column: span 4; }
-            .gallery-item:nth-child(26) { grid-column: span 4; }
-            .gallery-item:nth-child(27) { grid-column: span 6; }
-            .gallery-item:nth-child(28) { grid-column: span 6; }
-            .gallery-item:nth-child(29) { grid-column: span 3; }
-            .gallery-item:nth-child(30) { grid-column: span 3; }
-            .gallery-item:nth-child(31) { grid-column: span 6; }
-        }
-        
-        footer {
-            background-color: #222;
-            color: white;
-            text-align: center;
-            font-size: 0.5rem;
-            padding: 0.5rem 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-
-        /* Modal Styles */
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-        }
-
-        .modal-content {
-            max-width: 90%;
-            max-height: 90%;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .modal-content img {
-            max-width: 100%;
-            max-height: 70vh;
-            object-fit: contain;
-            margin-bottom: 1rem;
-        }
-
-        .modal-text {
-            overflow-y: auto;
-            max-height: 20vh;
-            width: 100%;
-            text-align: center;
-        }
-
-        .modal-text p {
-            color: white;
-            margin: 0;
-        }
-
-        .modal-caption {
-            font-size: 1.2rem;
-            font-weight: lighter;
-            margin-bottom: 0.5rem;
-        }
-
-        .modal-details {
-            color: #ccc;
-            font-size: 0.75rem;
-            font-style: italic;
-        }
-    </style>
+    <!-- Link external stylesheet -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style1.css">
 </head>
 <body>
     <header>
-        <h1>Angel Padres Photography Portfolio</h1>
+        <h1>Angel Padres<br>Photography Portfolio</h1>
     </header>
     <nav>
         <ul>
-            <!--<li><a href="#gallery">Gallery</a></li>-->
+            <li><a href="" div class="active_page">Gallery</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
     <main>
         <section id="gallery" class="gallery">
-            <div class="gallery-item" data-details="18mm | 1/20 | f/5.6 | ISO 800" data-caption="Tsuna met Belle on her first day of her first visit to Disneyland, on November 26, 2024. Photo by Angel Padres.">
-                <img src="images/class_photos/pe_belle.jpg" alt="" width="600" height="250">
-                <div class="overlay">
-                    <div class="text">Photo Essay</div>
+            <a href="essay.html" class="gallery-item wide essay" style="background: none; position: relative; display: flex; align-items: center; justify-content: center;">
+                <img src="images/class_photos/pe_bubbles.jpg" alt="" style="position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+                <div class="essay-content" style="margin: auto 0; position: relative; z-index: 2; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+                    <h3 style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Where Dreams Come True: A 4-Year-Old's First Disneyland Experience</h3>
+                    <p style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Photo Essay</p>
                 </div>
-            </div>
-            <div class="gallery-item" data-details="27mm | 1/15 | f/25 | ISO 800" data-caption="Tsuna's dad, AJ, helps her put on her princess shoes on her third day of her first visit to Disneyland on November 28, 2024. Photo by Angel Padres.">
-                <img src="images/class_photos/pe_shoes.jpg" alt="" width="600" height="250">
-                <div class="overlay">
-                    <div class="text">Photo Essay</div>
-                </div>
-            </div>
-            <div class="gallery-item" data-details="21mm | 1/30 | f/22 | ISO 1600" data-caption="Tsuna admiring the Santa Claus ornament on the Christmas tree at Disneyland on November 28, 2024. Photo by Angel Padres.">
-                <img src="images/class_photos/pe_santa.jpg" alt="" width="600" height="250">
-                <div class="overlay">
-                    <div class="text">Photo Essay</div>
-                </div>
-            </div>
-            <div class="gallery-item" data-details="18mm | 1/500 | f/5.6 | ISO 800" data-caption="Tigger gave Tsuna a huge hug when she met him at Disneyland on November 29, 2024. Photo by Angel Padres.">
-                <img src="images/class_photos/pe_tigger.jpg" alt="" width="600" height="250">
-                <div class="overlay">
-                    <div class="text">Photo Essay</div>
-                </div>
-            </div>
-            <div class="gallery-item" data-details="18mm | 1/640 | f/22 | ISO 1600" data-caption="Princess Tsuna popping bubbles in front of DIsneyland castle on November 29, 2024. Photo by Angel Padres.">
-                <img src="images/class_photos/pe_bubbles.jpg" alt="" width="600" height="250">
-                <div class="overlay">
-                    <div class="text">Photo Essay</div>
-                </div>
-            </div>
-            <div class="gallery-item" data-details="18mm | 1/80 | f/3.5 | ISO 6400" data-caption="Tsuna dipping a piece of her Mickey Mouse pretzel in cheese dip, enjoying a snack before meeting more Disney characters at Disneyland on November 29, 2024. Photo by Angel Padres.">
-                <img src="images/class_photos/pe_snack.jpg" alt="" width="600" height="250">
-                <div class="overlay">
-                    <div class="text">Photo Essay</div>
-                </div>
-            </div>
-            <div class="gallery-item" data-details="21mm | 1/10 | f/3.5 | ISO 6400" data-caption="Tsuna got to meet her favorite Disney character, Daisy Duck, at Disneyland on November 29, 2024. Photo by Angel Padres.">
-                <img src="images/class_photos/pe_daisy.jpg" alt="" width="600" height="250">
-                <div class="overlay">
-                    <div class="text">Photo Essay</div>
-                </div>
-            </div>
-            <div class="gallery-item" data-details="18mm | 1/25 | f/3.5 | ISO 6400" data-caption="Tsuna watching the fireworks at Disneyland castle atop her dad's shoulders on November 29, 2024. Photo by Angel Padres.">
-                <img src="images/class_photos/pe_fireworks.jpg" alt="" width="600" height="250">
-                <div class="overlay">
-                    <div class="text">Photo Essay</div>
-                </div>
-            </div>
-            <div class="gallery-item" data-details="25mm | 1/25 | f/4 | ISO 6400" data-caption="It was really hard for Tsuna to stay awake for the Disneyland fireworks show, and she fell asleep right afterward on November 29, 2024. Photo by Angel Padres">
-                <img src="images/class_photos/pe_sleep.jpg" alt="" width="600" height="250">
-                <div class="overlay">
-                    <div class="text">Photo Essay</div>
-                </div>
-            </div>
-            <div class="gallery-item" data-details="18mm | 1/25 | f/3.5 | ISO 6400" data-caption="Princess Tsuna at the end of an exciting day, asleep in her stroller in front of the Disneyland castle on the last day of her first visit on November 29, 2024. Photo taken by Angel Padres.">
-                <img src="images/class_photos/pe_sleep_castle.jpg" alt="" width="600" height="250">
-                <div class="overlay">
-                    <div class="text">Photo Essay</div>
-                </div>
-            </div>
+            </a>
             <div class="gallery-item" data-details="18mm | 1/125 | f/4 | ISO 6400" data-caption="Bret Padres golfing at Las Vegas Top Golf on November 17, 2024. Photo by Angel Padres.">
                 <img src="images/class_photos/sport.jpg" alt="." width="600" height="250">
                 <div class="overlay">
@@ -558,90 +159,115 @@
         <p>© 2024 Angel Padres. All rights reserved.</p>
     </footer>
 
-
-<script>
-document.addEventListener('DOMContentLoaded', (event) => {
-    const galleryItems = document.querySelectorAll('.gallery-item');
-
-    galleryItems.forEach(item => {
-        const isVideo = item.classList.contains('video-item');
-        
-        if (!isVideo) {
-            // This is an image, so it will have the overlay and open the image in a modal
-            const img = item.querySelector('img');
-            const overlay = item.querySelector('.overlay');
-
-            item.addEventListener('click', () => {
-                const imgSrc = img.src;
-                const imgAlt = img.alt;
-                const imgCaption = item.dataset.caption;
-                const imgDetails = item.dataset.details;
-
-                openModal(imgSrc, 'image', imgCaption, imgDetails);
-            });
-        } else {
-            // This is a video, no overlay, and open modal with video
-            const iframeSrc = item.querySelector('iframe').src;
-            const videoCaption = item.dataset.caption;
-            const videoDetails = item.dataset.details;
-
-            item.addEventListener('click', () => {
-                openModal(iframeSrc, 'video', videoCaption, videoDetails);
-            });
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-    });
+    
+        /* Define spans for each item in the default view */
+        .gallery-item:nth-child(1) { grid-column: span 24; }
+        .gallery-item:nth-child(2) { grid-column: span 6; }
+        .gallery-item:nth-child(3) { grid-column: span 6; }
+        .gallery-item:nth-child(4) { grid-column: span 6; }
+        .gallery-item:nth-child(5) { grid-column: span 6; }
+        .gallery-item:nth-child(6) { grid-column: span 10; }
+        .gallery-item:nth-child(7) { grid-column: span 14; }
+        .gallery-item:nth-child(8) { grid-column: span 12; }
+        .gallery-item:nth-child(9) { grid-column: span 12; }
+        .gallery-item:nth-child(10) { grid-column: span 4; }
+        .gallery-item:nth-child(11) { grid-column: span 4; }
+        .gallery-item:nth-child(12) { grid-column: span 8; }
+        .gallery-item:nth-child(13) { grid-column: span 4; }
+        .gallery-item:nth-child(14) { grid-column: span 4; }
+        .gallery-item:nth-child(15) { grid-column: span 8; }
+        .gallery-item:nth-child(16) { grid-column: span 8; }
+        .gallery-item:nth-child(17) { grid-column: span 8; }
+        .gallery-item:nth-child(18) { grid-column: span 12; }
+        .gallery-item:nth-child(19) { grid-column: span 12; }
+        .gallery-item:nth-child(20) { grid-column: span 7; }
+        .gallery-item:nth-child(21) { grid-column: span 7; }
+        .gallery-item:nth-child(22) { grid-column: span 10; }
 
-    function openModal(src, type, caption, details) {
-        const modal = document.createElement('div');
-        modal.className = 'modal';
-
-        const modalContent = document.createElement('div');
-        modalContent.className = 'modal-content';
-
-        if (type === 'video') {
-            const iframe = document.createElement('iframe');
-            iframe.src = src;
-            iframe.width = '100%';
-            iframe.height = '100%';
-            iframe.frameBorder = '0';
-            iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-            iframe.allowFullscreen = true;
-            modalContent.appendChild(iframe);
-        } else {
-            const img = document.createElement('img');
-            img.src = src;
-            img.alt = caption;
-            modalContent.appendChild(img);
+        /* Define spans for different screen sizes */
+        @media (max-width: 900px) {
+            .gallery-item:nth-child(1) { grid-column: span 24; }
+            .gallery-item:nth-child(2) { grid-column: span 6; }
+            .gallery-item:nth-child(3) { grid-column: span 6; }
+            .gallery-item:nth-child(4) { grid-column: span 6; }
+            .gallery-item:nth-child(5) { grid-column: span 6; }
+            .gallery-item:nth-child(6) { grid-column: span 10; }
+            .gallery-item:nth-child(7) { grid-column: span 14; }
+            .gallery-item:nth-child(8) { grid-column: span 12; }
+            .gallery-item:nth-child(9) { grid-column: span 12; }
+            .gallery-item:nth-child(10) { grid-column: span 4; }
+            .gallery-item:nth-child(11) { grid-column: span 4; }
+            .gallery-item:nth-child(12) { grid-column: span 8; }
+            .gallery-item:nth-child(13) { grid-column: span 4; }
+            .gallery-item:nth-child(14) { grid-column: span 4; }
+            .gallery-item:nth-child(15) { grid-column: span 8; }
+            .gallery-item:nth-child(16) { grid-column: span 8; }
+            .gallery-item:nth-child(17) { grid-column: span 8; }
+            .gallery-item:nth-child(18) { grid-column: span 12; }
+            .gallery-item:nth-child(19) { grid-column: span 12; }
+            .gallery-item:nth-child(20) { grid-column: span 7; }
+            .gallery-item:nth-child(21) { grid-column: span 7; }
+            .gallery-item:nth-child(22) { grid-column: span 10; }
         }
 
-        const textContent = document.createElement('div');
-        textContent.className = 'modal-text';
+        @media (max-width: 600px) {
+            .gallery-item:nth-child(1) { grid-column: span 12; }
+            .gallery-item:nth-child(2) { grid-column: span 3; }
+            .gallery-item:nth-child(3) { grid-column: span 3; }
+            .gallery-item:nth-child(4) { grid-column: span 3; }
+            .gallery-item:nth-child(5) { grid-column: span 3; }
+            .gallery-item:nth-child(6) { grid-column: span 5; }
+            .gallery-item:nth-child(7) { grid-column: span 7; }
+            .gallery-item:nth-child(8) { grid-column: span 6; }
+            .gallery-item:nth-child(9) { grid-column: span 6; }
+            .gallery-item:nth-child(10) { grid-column: span 2; }
+            .gallery-item:nth-child(11) { grid-column: span 2; }
+            .gallery-item:nth-child(12) { grid-column: span 4; }
+            .gallery-item:nth-child(13) { grid-column: span 2; }
+            .gallery-item:nth-child(14) { grid-column: span 2; }
+            .gallery-item:nth-child(15) { grid-column: span 4; }
+            .gallery-item:nth-child(16) { grid-column: span 4; }
+            .gallery-item:nth-child(17) { grid-column: span 4; }
+            .gallery-item:nth-child(18) { grid-column: span 6; }
+            .gallery-item:nth-child(19) { grid-column: span 6; }
+            .gallery-item:nth-child(20) { grid-column: span 3; }
+            .gallery-item:nth-child(21) { grid-column: span 3; }
+            .gallery-item:nth-child(22) { grid-column: span 6; }
+        }
 
-        const captionElement = document.createElement('p');
-        captionElement.className = 'modal-caption';
-        captionElement.textContent = caption;
+        @media (max-width: 480px) {
+            .gallery-item:nth-child(1) { grid-column: span 12; }
+            .gallery-item:nth-child(2) { grid-column: span 3; } 
+            .gallery-item:nth-child(3) { grid-column: span 3; }
+            .gallery-item:nth-child(4) { grid-column: span 3; }
+            .gallery-item:nth-child(5) { grid-column: span 3; }
+            .gallery-item:nth-child(6) { grid-column: span 5; }
+            .gallery-item:nth-child(7) { grid-column: span 7; }
+            .gallery-item:nth-child(8) { grid-column: span 6; }
+            .gallery-item:nth-child(9) { grid-column: span 6; }
+            .gallery-item:nth-child(10) { grid-column: span 2; }
+            .gallery-item:nth-child(11) { grid-column: span 2; }
+            .gallery-item:nth-child(12) { grid-column: span 4; }
+            .gallery-item:nth-child(13) { grid-column: span 2; }
+            .gallery-item:nth-child(14) { grid-column: span 2; }
+            .gallery-item:nth-child(15) { grid-column: span 4; }
+            .gallery-item:nth-child(16) { grid-column: span 4; }
+            .gallery-item:nth-child(17) { grid-column: span 4; }
+            .gallery-item:nth-child(18) { grid-column: span 6; }
+            .gallery-item:nth-child(19) { grid-column: span 6; }
+            .gallery-item:nth-child(20) { grid-column: span 3; }
+            .gallery-item:nth-child(21) { grid-column: span 3; }
+            .gallery-item:nth-child(22) { grid-column: span 6; }
+        }
+    </style>
 
-        const detailsElement = document.createElement('p');
-        detailsElement.className = 'modal-details';
-        detailsElement.textContent = details;
-
-        const processedDetails = details.replace(/f\//g, '<i>f</i>/');
-        detailsElement.innerHTML = processedDetails;
-
-        textContent.appendChild(detailsElement);
-        textContent.appendChild(captionElement);
-
-        modalContent.appendChild(textContent);
-        modal.appendChild(modalContent);
-
-        modal.addEventListener('click', () => {
-            document.body.removeChild(modal);
-        });
-
-        document.body.appendChild(modal);
-    }
-});
-
-</script>
-
-</body></html>
+    <!-- Link external JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
