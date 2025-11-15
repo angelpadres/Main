@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angel Padres Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Angel Padres</h1>
+    </header>
+
+    <nav aria-label="Main navigation">
+        <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><div class="active_page" aria-current="page">Contact</div></li>
+        </ul>
+    </nav>
+    
+<main class="text-block">
+    <h2>Email Me</h2>
+
+    <!-- -------------------------------------------------
+         The form – notice the action points to /api/contact
+         (the Netlify/Vercel function we built earlier)
+         ------------------------------------------------- -->
+    <form id="contactForm"
+          class="contact-form"
+          action="/api/contact"
+          method="POST">
+
+        <!-- ----- Name ----- -->
+        <div class="form-field">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <!-- ----- E‑mail ----- -->
+        <div class="form-field">
+            <label for="email">Your e‑mail</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <!-- ----- Message ----- -->
+        <div class="form-field">
+            <label for="msg">Message</label>
+            <textarea id="msg" name="message" rows="6" required></textarea>
+        </div>
+
+        <!-- ----- Honeypot (invisible to humans) ----- -->
+        <div style="position:absolute; left:-9999px;">
+            <label>Leave blank <input name="website"></label>
+        </div>
+
+        <!-- ----- Submit button ----- -->
+        <button type="submit" class="submit-btn">Send</button>
+    </form>
+
+    <!-- Status message (success / error) -->
+    <div id="status" style="margin-top:1rem;font-weight:bold;"></div>
+</main>
+
+    <footer>
+        <p>© 2025 Angel Padres &nbsp; |  <a id="footer" href="#">[click to reveal e‑mail]</a>  | &nbsp; All rights reserved</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById('contactForm');
+        const status = document.getElementById('status');
+
+        form.addEventListener('submit', async e => {
+            e.preventDefault();               // stop normal navigation
+            status.textContent = 'Sending…';
+
+            const data = new FormData(form);
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: data
+            });
+
+            if (response.ok) {
+                status.textContent = '✅ Message sent! Thanks for reaching out.';
+                form.reset();
+            } else {
+                status.textContent = '❌ Oops – something went wrong.';
+            }
+        });
+    </script>
+</body>
+<script src="footer.js"></script>
+</html>
