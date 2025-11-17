@@ -233,7 +233,7 @@ footer a {
 .project-card a {
     color: white;
     text-decoration: none;
-    padding: 100%;
+    padding: 3rem;
 }
 
 .project-card h3 {
