@@ -10,8 +10,9 @@ body, html {
     text-align: center;
 }
 
+
 header {
-    background: linear-gradient(135deg, rgba(34, 34, 34, 0.2), rgba(51, 51, 51, 0.2)), url(images/lbsunset.jpg);
+    background: linear-gradient(135deg, rgba(34, 34, 34, 0.4), rgba(51, 51, 51, 0.4)), url(images/lbsunset.jpg);
     color: white;
     background-size: cover;
     background-position: center;
@@ -22,10 +23,8 @@ header {
 
 header h1 {
     text-shadow: 0 0 2px rgba(0, 0, 0, .1);
-    text-shadow: 0 0 8px rgba(0, 0, 0, .2);
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     text-shadow: 0 0 12px rgba(0, 0, 0, 0.9);
-    text-shadow: 0 0 16px rgba(0, 0, 0, 0.9);
 }
 
 h1 {
@@ -39,13 +38,12 @@ h2 {
     color:#000000;
     font-size: 1.8rem;
     font-weight: 300;
+    margin: auto;
 }
 
 nav {
     background-color: #333;
     padding: 1rem 0;
-    display: flex;
-    flex-direction: column;
     margin-bottom: 1rem;
 }
 
@@ -86,18 +84,39 @@ main {
     margin-bottom: 60px; /* Add space for the footer */
 }
 
-.intro-text {
+@media (max-width:900px) {
+    main {
+        width: 75vw;
+    }
+}
+@media (max-width:600px) {
+    main {
+        width: 85vw;
+    }
+}
+@media (max-width: 480px) {
+    main {
+        width: 90vw;
+    }
+}
+
+@media (max-width: 350px) {
+    main {
+        width: 100vw;
+    }
+}
+
+.intro-text h2 {
     text-align: center;
-    margin: 2px;
-    margin-top: 2rem;
-    padding: 1rem;
+    margin: 2.5rem 1.6rem;
+    padding: 2rem;
 }
 
 .text-block {
     max-width: 55rem;
-    width: 90%;
+    width: 100%;
     margin: 2rem auto;
-    padding: 1.8rem;
+    padding: 1rem .5rem;
     background-color: white;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.4);
@@ -108,6 +127,7 @@ main {
     display: block;
     font-size: 1rem;
     text-align: left;
+    overflow-wrap: anywhere;
 }
 
 .icon {
@@ -136,25 +156,58 @@ footer a {
     padding: .5rem;
 }
 
-@media (max-width:900px) {
-    main {
-        width: 75vw;
-    }
-}
-@media (max-width:600px) {
-    main {
-        width: 85vw;
-    }
-}
-@media (max-width: 480px) {
-    main {
-        width: 90vw;
-    }
+
+.profile {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: .9rem;
+    align-items: center;
 }
 
-@media (max-width:400px) {
-    main {
-        width: 75vw;
+.profile img {
+    width: auto;
+    max-height: 350px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.profile-txt {
+    max-width: 55rem;
+    width: 90%;
+    background-color: white;
+    border-radius: 12px;
+    flex: 2;
+}
+
+.profile-txt p {
+    margin: 1rem;
+    font-size: 1rem;
+    text-align: left;
+}
+
+@media (min-width: 820px) {
+    .profile {
+        margin: 1rem;
+        justify-self: start;
+    }
+    .profile img {
+        max-width: 300px;
+        display: block;
+    }
+}
+@media (max-width: 768px) {
+    .profile {
+        grid-template-columns: 1fr;
+    }
+    .profile-txt {
+        padding: 1rem;
+        justify-content: center;
+    }
+    .profile-img {
+        height: auto;
+        display: block;
+        max-width: 300px;
+        margin: 0 auto;
     }
 }
 
@@ -180,6 +233,7 @@ footer a {
 .project-card a {
     color: white;
     text-decoration: none;
+    padding: 100%;
 }
 
 .project-card h3 {
@@ -215,7 +269,9 @@ footer a {
 .form-field input,
 .form-field textarea {
     width: 100%;
-    padding: 0.6rem;
+    height: 100%;
+    padding: auto 1.5rem;
+    margin: auto;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1rem;
@@ -234,4 +290,30 @@ footer a {
 
 .submit-btn:hover {
     background-color: #444;
+}
+
+.social-links {
+    text-align: center;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.social-icon {
+    color: #444;
+    transition: color 0.3s ease;
+}
+
+.social-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+.social-icon:hover {
+    color: #C59AEA;
 }
