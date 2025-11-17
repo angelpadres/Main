@@ -76,34 +76,13 @@ nav .active_page {
 }
 
 main {
-    width: 75%;
+    width: 90%;
     max-width: 900px;
     margin: 2rem auto;
     padding: 1rem;
     flex-grow: 1;
-    margin-bottom: 60px; /* Add space for the footer */
-}
-
-@media (max-width:900px) {
-    main {
-        width: 75vw;
-    }
-}
-@media (max-width:600px) {
-    main {
-        width: 85vw;
-    }
-}
-@media (max-width: 480px) {
-    main {
-        width: 90vw;
-    }
-}
-
-@media (max-width: 350px) {
-    main {
-        width: 100vw;
-    }
+    margin-bottom: 60px; 
+    align-items: center;
 }
 
 .intro-text h2 {
@@ -114,7 +93,7 @@ main {
 
 .text-block {
     max-width: 55rem;
-    width: 100%;
+    width: 90%;
     margin: 2rem auto;
     padding: 1rem .5rem;
     background-color: white;
@@ -215,7 +194,7 @@ footer a {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    margin: 4rem 0;
+    margin: 4rem auto;
 }
 
 .project-card {
@@ -224,16 +203,11 @@ footer a {
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     transition: transform 0.3s ease;
+    text-decoration: none;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-}
-
-.project-card a {
-    color: white;
-    text-decoration: none;
-    padding: 3rem;
 }
 
 .project-card h3 {
