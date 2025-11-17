@@ -76,13 +76,18 @@ nav .active_page {
 }
 
 main {
-    width: 90%;
-    max-width: 900px;
     margin: 2rem auto;
     padding: 1rem;
     flex-grow: 1;
     margin-bottom: 60px; 
     align-items: center;
+}
+
+.contain {
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    padding: auto;
 }
 
 .intro-text h2 {
