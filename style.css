@@ -5,9 +5,13 @@ body, html {
     font-family: 'Montserrat', sans-serif;
     background-color: #f0f0f0;
     min-height: 100vh;
-    width: 100%;
     font-size: 100%;
     text-align: center;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
 }
 
 
@@ -19,12 +23,6 @@ header {
     padding: 3.2rem 0;
     width: 100%;
     height: 100%;
-}
-
-header h1 {
-    text-shadow: 0 0 2px rgba(0, 0, 0, .1);
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    text-shadow: 0 0 12px rgba(0, 0, 0, 0.9);
 }
 
 h1 {
@@ -41,6 +39,21 @@ h2 {
     margin: auto;
 }
 
+header h1 {
+    text-shadow: 0 0 2px rgba(0, 0, 0, .1);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 12px rgba(0, 0, 0, 0.9);
+}
+
+header h2 {
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    color:  white;
+    text-shadow: 0 0 2px rgba(0, 0, 0, .1);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 12px rgba(0, 0, 0, 0.9);
+}
+
 nav {
     background-color: #333;
     padding: 1rem 0;
@@ -53,11 +66,12 @@ nav ul {
     padding: 0;
     margin: 0;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    gap: .5rem;
 }
 
 nav ul li {
-    margin: 0 1rem;
     font-size: 1.1rem;
 }
 
@@ -76,18 +90,19 @@ nav .active_page {
     color: #C59AEA;
 }
 
+@media (max-width: 480px) {
+    nav ul {
+        font-size: x-small;
+        flex-direction: ;
+    }
+}
+
 main {
     margin: 2rem auto;
     padding: 1rem;
     flex-grow: 1;
     margin-bottom: 60px; 
     align-items: center;
-}
-
-.contain {
-    width: 90%;
-    margin: auto;
-    padding: auto;
 }
 
 .intro-text h2 {
@@ -141,6 +156,10 @@ footer a {
 }
 
 .profile {
+    max-width: 55rem;
+    width: 90%;
+    margin: 2rem auto;
+    padding: 1rem .5rem;
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: .9rem;
@@ -192,42 +211,76 @@ footer a {
         max-width: 300px;
         margin: 0 auto;
     }
-    .footer .nav .intro-text {
-        font-size: smaller;
-    }
+
 }
 
-.feature {
+.feature-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
+    max-width: 55rem;
     margin: 4rem auto;
 }
 
 .project-card {
-    background-color: #222;
+    /* Base style: White background, subtle shadow */
+    background-color: white; 
+    border: none; /* No solid border */
     padding: 2rem;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
+    text-align: left; /* Aligned left for a cleaner, editorial look */
+    position: relative; /* Crucial for the pseudo-element border */
+    overflow: hidden; /* Ensures the border is contained */
+}
+
+.project-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px; /* Height of the colored strip */
+    
+    /* Subtle Gray/Dark Gradient: Goes from light gray to your dark #222 */
+    background: linear-gradient(to right, #ccc, #222); 
+    
+    transition: background 0.4s ease;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2); 
 }
 
+/* Hover effect on the gradient: Changes the strip to your accent color */
+.project-card:hover::before {
+    background: linear-gradient(to right, #C59AEA, #9d77be); /* Your accent color gradient */
+}
+
+
+/* --- TEXT COLOR ADJUSTMENTS for WHITE CARDS --- */
+
 .project-card h3 {
-    color: #b878d2;
+    color: #222; 
     font-size: 1.5rem;
+    margin-top: 0.5rem; /* Pushes the title down slightly from the gradient bar */
     margin-bottom: 1rem;
-    font-weight: 400;
+    font-weight: 700; 
+    transition: color 0.3s ease;
 }
 
 .project-card p {
-    color: #ccc;
+    color: #555; 
     font-size: 1rem;
     line-height: 1.6;
+}
+
+/* Hover text color: Uses your accent color */
+.project-card:hover h3 {
+    color: #C59AEA; 
 }
 
 .contact-form {
@@ -297,4 +350,545 @@ footer a {
 
 .social-icon:hover {
     color: #C59AEA;
+}
+
+/*GALLERY ITEM CSS*/
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+    gap: 1rem;
+}
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    height: 250px;
+    cursor: pointer;
+}
+.gallery a {
+    text-decoration: none;
+}
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.gallery-item .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.7);
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+}
+.gallery-item:hover .overlay {
+    height: 100%;
+}
+.gallery-item .text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 90%;
+}
+
+@media (max-width:900px) {
+    .gallery {
+        grid-template-columns: repeat(24, 1fr);
+    }
+}
+@media (max-width:600px) {
+    .gallery {
+        grid-template-columns: repeat(12, 1fr);
+    }
+}
+@media (max-width: 480px) {
+    .gallery {
+        grid-template-columns: repeat(12, 1fr);
+    }
+}
+
+/*ESSAY ITEM CSS*/
+#essay-block {
+    padding: 0.5rem;
+    display: inline-block;
+}
+.essay-container {
+    max-width: 1200px;
+    padding: 0 1rem;
+    margin: 0px auto;
+}
+
+.essay-header {
+    text-align: center;
+}
+
+.essay-header h2 {
+    font-size: 2.2rem;
+    color: #333;
+    margin: 2px;
+    margin-top: 20px;
+}
+
+.essay-header h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin: 0px;
+}
+
+.essay-header p {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 800px;
+    margin: 10px 0px 0px;
+    text-align: center;
+    font-style: italic;
+}
+.essay-content {
+    text-align: center;
+    color: white;
+    padding: 1rem;
+}
+.essay-content h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+.essay-content p {
+    margin: 1rem;
+    font-size: 1rem;
+    text-align: center;
+}
+.essay-image {
+    display: block;
+    margin: 1.7rem; /* Add spacing for text wrapping */
+}
+
+.photo-essay {
+    margin: 0;
+}
+
+.photo-essay p {
+    display: block;
+    margin: 1rem;
+}
+
+.essay-image.gallery-item {
+    display: flex;
+    margin: 1rem;
+}
+
+.photo-essay::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-content img {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+.modal-text {
+    overflow-y: auto;
+    max-height: 20vh;
+    width: 100%;
+    text-align: center;
+}
+
+.modal-text p {
+    color: white;
+    margin: 0;
+}
+
+.modal-caption {
+    font-size: 1.2rem;
+    font-weight: lighter;
+    margin-bottom: 0.5rem;
+}
+
+.modal-details {
+    color: #ccc;
+    font-size: 0.75rem;
+    font-style: italic;
+}
+
+/* --- NEW CLOSE BUTTON STYLING --- */
+.modal-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #fff; /* White color */
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s ease, color 0.2s ease;
+    z-index: 1001; /* Ensure it is above the image/video */
+}
+
+/* Use your accent color on hover for professionalism */
+.modal-close-btn:hover {
+    color: #C59AEA; /* Your accent color */
+    opacity: 1;
+}
+
+/* You must set position: relative on the modal-content for the button to position correctly */
+.modal-content {
+    /* CONFIRM: This rule needs position: relative */
+    position: relative; 
+    max-width: 90%;
+    /* ... rest of your modal-content styles ... */
+}
+
+/* --- PROJECTS/WRITING PAGE SPECIFIC STYLES --- */
+
+/* Adapt h2 to match your existing styling */
+.page-heading {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 400; /* Adjusted from your h2 weight of 300 to give it a bit more presence */
+    margin: 2.5rem 1.6rem;
+    padding: 2rem;
+    color: #000000;
+}
+
+/* Container for the new content - keeps everything within reasonable limits */
+.content-area {
+    max-width: 900px; /* Slightly narrower than your text-block for focus */
+    width: 90%;
+    margin: 2rem auto;
+    padding: 1rem 0;
+}
+
+/* Subheadings for sections */
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    text-align: left;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #ccc;
+}
+
+/* --- SECTION 1: MULTIMEDIA PROJECTS (Cards) --- */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.multimedia-card {
+    /* Mimics the general shape and shadow of your .text-block */
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    position: relative;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.multimedia-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+}
+
+.media-placeholder {
+    width: 100%;
+    height: 150px;
+    background-color: #f0f0f0;
+    border: 1px dashed #C59AEA; /* Using your accent color */
+    color: #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+.multimedia-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #222; /* Dark color for contrast */
+    margin: 0 0 10px 0;
+    text-align: center;
+}
+
+.multimedia-card p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: left; /* Add this line to center the button text and CTA */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Distinct Label/Tag */
+.media-tag {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #C59AEA; /* Your accent color */
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 5px;
+    letter-spacing: 0.5px;
+}
+
+/* General Button Style (reused for primary CTA) */
+.btn-cta {
+    display: block;
+    width: 100%;
+    padding: 10px 0; /* Adjusted padding to remove left/right padding conflict */
+    text-align: center; /* FIX: Centers the text within the full-width button */
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: auto; /* Push to bottom of card */
+}
+
+.btn-primary {
+    background-color: #222; /* Your header/footer dark color */
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #444;
+}
+
+/* --- SECTION 2: EXTERNAL WRITING PORTFOLIO (Distinct Links) --- */
+
+.external-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 3rem;
+}
+
+.external-link-item {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 15px 20px;
+    border-left: 6px solid #C59AEA; /* Use accent color for distinction */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease;
+}
+
+.external-link-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.link-icon {
+    font-size: 2.2rem;
+    margin-right: 20px;
+    color: #555; /* Neutral icon color */
+}
+
+.link-info {
+    padding-left: .75rem;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.link-info h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #222;
+}
+
+.link-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.btn-secondary {
+    padding: 8px 15px;
+    background-color: #f0f0f0; /* Your body background color */
+    color: #222;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #C59AEA;
+    color: white;
+    border-color: #C59AEA;
+}
+
+/* --- Responsive Adjustments --- */
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr; /* Stack cards on smaller screens */
+    }
+    .external-link-item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+    .link-icon {
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+    .link-info {
+        margin-bottom: 10px;
+    }
+    .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* --- DESIGN PAGE SPECIFIC STYLES --- */
+
+.design-section-heading {
+    /* Uses the same style as your editing-heading for visual consistency */
+    color: #222;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: left;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    border-left: 6px solid #C59AEA; /* Highlight with accent color */
+}
+
+.project-showcase-grid {
+    display: grid;
+    /* Sets up for two columns by default */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.design-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    text-align: left;
+    position: relative;
+    border-top: 5px solid transparent; /* Placeholder for hover effect */
+}
+
+.design-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    border-top: 5px solid #C59AEA; /* Accent border on hover */
+}
+
+/* Adjustments for grid spanning */
+.card-wide {
+    grid-column: span 2; /* Takes up full width on desktop if desired, otherwise acts like card-narrow */
+}
+.card-narrow {
+    grid-column: span 1;
+}
+.card-full {
+    grid-column: 1 / -1; /* Takes full width of the grid */
+}
+
+
+.design-thumbnail-placeholder {
+    width: 100%;
+    height: 200px;
+    background-color: #f8f8f8;
+    border: 1px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    font-style: italic;
+    color: #888;
+}
+
+.design-card h4 {
+    color: #222;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.design-card p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.software-tag {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #333; /* Dark background */
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.7em;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .project-showcase-grid {
+        grid-template-columns: 1fr; /* All items stack on mobile */
+    }
+    .card-wide, .card-narrow, .card-full {
+        grid-column: 1 / -1; /* Ensure all cards span full width */
+    }
 }

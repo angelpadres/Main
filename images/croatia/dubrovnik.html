@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Dubrovnik Croatia - The Dalmatian Delight</title>
+    <meta name="viewport" content="width=device-width">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400&display=swap');
+
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f7f1;
+        }
+        header {
+            position: relative; 
+            height: 70vh; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)); 
+            z-index: -1;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 0;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        header p {
+            font-size: 1.5rem;
+            color: #f4f4f4;
+            max-width: 60%;
+            margin: 1rem auto;
+        }
+        nav {
+            background-color: rgba(255, 255, 255, 0.9);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+        nav ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            padding: 20px 0;
+            display: inline-block;
+            position: relative;
+        }
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #333;
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.3s ease-in-out 0s;
+        }
+        nav ul li a:hover::after {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+        .meta {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 10pt;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 4rem 0;
+        }
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .carousel-item {
+            min-width: 100%;
+            height: 500px;
+        }
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: #fff;
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .carousel-control.prev { left: 10px; }
+        .carousel-control.next { right: 10px; }
+        .description {
+            background: #fff;
+            padding: 2rem;
+            margin-top: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .video-container {
+            margin-top: 2rem;
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        .btn {
+            display: inline-block;
+            background: #333;
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#photos">Gallery</a></li>
+            <li><a href="#attractions">Attractions</a></li>
+        </ul>
+    </nav>
+
+    <header id="home" style="background: url('media/dubrovnik/dubrovnik_cove.jpg') no-repeat center center/cover;">
+        <h1>Dubrovnik</h1>
+    </header>
+    
+    <div class="container">
+        <section id="about">
+            <p class="meta">Published on July 15, 2024 | By Angel Padres</p>
+
+            <p>Traversing the walls of Dubrovnik is the quintessential tourist activity, and there's good reason - you get to experience Dubrovnik from above, able to peer down into the city walls, and gaze out over the tranquil Adriatic Sea. While we were on the wall it started to rain, making the walkway frighteningly slick. Hundreds of years of footsteps have smoothed over the stone’s surface, making traction non-existent. Additionally, some parts of the wall are uncomfortably low for such walking conditions. We took refuge under the awning of a cafe on the wall, with a beer in hand, waiting the bulk of the storm out before continuing onward.</p>
+
+            <p>Wandering through the narrow alleyways within Dubrovnik's towering walls can be disorienting and thrilling. It's like winding your way through a densely packed redwood forest; you feel minuscule but are fascinated by what you might find around the next corner. We happened upon a Michelin two star restaurant that we tried to dine at, but of course without a reservation the wait was too long for us. On our way journey to find sustenance, we wandered past an Irish Pub loudly playing John Denver’s ‘Take Me Home, Country Roads,’ which was both surprising and entertaining.</p>
+
+
+       <section id="photos">
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <a href="#" onclick="openFullImage(this); return false;">
+                            <img src="media/dubrovnik/dubrovnik_sunset.jpg" alt="Dubrovnik at dusk." width="800" height="500">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="#" onclick="openFullImage(this); return false;">
+                            <img src="media/dubrovnik/dubrovnik_square.jpg" alt="Outer Dubrovnik wall through a window, with a view of the statue." width="800" height="500">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="#" onclick="openFullImage(this); return false;">
+                            <img src="media/dubrovnik/dubrovnik_cove.jpg" alt="Dubrovnik cove area." width="800" height="500">
+                        </a>
+                    </div>
+                </div>
+                <a href="#" class="carousel-control prev" onclick="prevSlide(); return false;">&lt;</a>
+                <a href="#" class="carousel-control next" onclick="nextSlide(); return false;">&gt;</a>
+            </div>
+        </section>
+
+
+        <section id="attractions" class="description">
+            <h2>Top Attractions in Dubrovnik</h2>
+            <ul>
+                <li><strong>City Walls:</strong> Walk the 2 km circuit for breathtaking views.</li>
+                <li><strong>Stradun:</strong> The main street of Dubrovnik, paved with limestone.</li>
+                <li><strong>Rector's Palace:</strong> Gothic-Renaissance palace now a city museum.</li>
+                <li><strong>Lokrum Island:</strong> A short ferry ride away, perfect for swimming and relaxation.</li>
+                <li><strong>Cable Car:</strong> Ride to the top of Srđ Hill for panoramic views.</li>
+            </ul>
+            <a href="../croatia.html" class="btn">Back to Blog</a>
+        </section>
+    </div>
+    
+    <footer>
+        <p>© 2024 Angel Padres. All rights reserved.</p>
+        <p>Discover more of Croatia's beauty</p>
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+        const items = document.querySelectorAll('.carousel-item');
+
+        function showSlide(index) {
+            if (index >= items.length) {
+                currentIndex = 0;
+            } else if (index < 0) {
+                currentIndex = items.length - 1;
+            } else {
+                currentIndex = index;
+            }
+            const offset = -currentIndex * 100;
+            document.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentIndex - 1);
+        }
+
+        setInterval(nextSlide, 6000);
+
+        function openFullImage(element) {
+            const images = Array.from(document.querySelectorAll('.carousel-item img'));
+            currentIndex = images.indexOf(element.querySelector('img'));
+
+            const fullscreenOverlay = document.createElement('div');
+            fullscreenOverlay.style.position = 'fixed';
+            fullscreenOverlay.style.top = '0';
+            fullscreenOverlay.style.left = '0';
+            fullscreenOverlay.style.width = '100%';
+            fullscreenOverlay.style.height = '100%';
+            fullscreenOverlay.style.backgroundColor = 'rgba(0,0,0,0.9)';
+            fullscreenOverlay.style.display = 'flex';
+            fullscreenOverlay.style.flexDirection = 'column';
+            fullscreenOverlay.style.justifyContent = 'center';
+            fullscreenOverlay.style.alignItems = 'center';
+            fullscreenOverlay.style.zIndex = '9999';
+
+            const imageContainer = document.createElement('div');
+            imageContainer.style.position = 'relative';
+            imageContainer.style.width = '90%';
+            imageContainer.style.height = '80%';
+            imageContainer.style.display = 'flex';
+            imageContainer.style.justifyContent = 'center';
+            imageContainer.style.alignItems = 'center';
+
+            const fullImg = document.createElement('img');
+            fullImg.src = images[currentIndex].src;
+            fullImg.style.maxWidth = '100%';
+            fullImg.style.maxHeight = '100%';
+            fullImg.style.objectFit = 'contain';
+
+            const caption = document.createElement('div');
+            caption.textContent = images[currentIndex].alt;
+            caption.style.color = '#fff';
+            caption.style.marginTop = '20px';
+            caption.style.fontSize = '18px';
+            caption.style.textAlign = 'center';
+
+            const prevButton = document.createElement('button');
+            prevButton.innerHTML = '&#10094;';
+            prevButton.style.position = 'absolute';
+            prevButton.style.left = '10px';
+            prevButton.style.top = '50%';
+            prevButton.style.transform = 'translateY(-50%)';
+            prevButton.style.fontSize = '30px';
+            prevButton.style.background = 'none';
+            prevButton.style.border = 'none';
+            prevButton.style.color = '#fff';
+            prevButton.style.cursor = 'pointer';
+
+            const nextButton = document.createElement('button');
+            nextButton.innerHTML = '&#10095;';
+            nextButton.style.position = 'absolute';
+            nextButton.style.right = '10px';
+            nextButton.style.top = '50%';
+            nextButton.style.transform = 'translateY(-50%)';
+            nextButton.style.fontSize = '30px';
+            nextButton.style.background = 'none';
+            nextButton.style.border = 'none';
+            nextButton.style.color = '#fff';
+            nextButton.style.cursor = 'pointer';
+
+            imageContainer.appendChild(fullImg);
+            imageContainer.appendChild(prevButton);
+            imageContainer.appendChild(nextButton);
+            fullscreenOverlay.appendChild(imageContainer);
+            fullscreenOverlay.appendChild(caption);
+
+            document.body.appendChild(fullscreenOverlay);
+
+            function updateImage() {
+                fullImg.src = images[currentIndex].src;
+                caption.textContent = images[currentIndex].alt;
+            }
+
+            prevButton.addEventListener('click', (e) => {
+                e.stopPropagation();
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                updateImage();
+            });
+
+            nextButton.addEventListener('click', (e) => {
+                e.stopPropagation();
+                currentIndex = (currentIndex + 1) % images.length;
+                updateImage();
+            });
+
+            fullscreenOverlay.addEventListener('click', () => {
+                document.body.removeChild(fullscreenOverlay);
+            });
+        }
+    </script>
+</body>
+</html>

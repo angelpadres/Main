@@ -22,7 +22,10 @@ exports.handler = async (event, context) => {
   } catch (err) {
     return { statusCode: 400, body: 'Bad Request' };
   }
+Add the Node dependency (nodemailer and formidable) so Netlify can install them during the build.
 
+npm init -y               # creates package.json
+npm install nodemailer formidable
   if (isSpam(fields)) {
     return { statusCode: 200, body: 'Thanks!' };
   }
