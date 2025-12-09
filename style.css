@@ -1,16 +1,19 @@
 
 /*----Main Stlye----*/
-body, html {
+html {
+    height: 100%; 
+}
+body {
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
     background-color: #f0f0f0;
-    min-height: 100vh;
+    min-height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
     font-size: 100%;
     text-align: center;
     box-sizing: border-box;
-}
-body {
     overflow-x: hidden;
 }
 header {
@@ -124,7 +127,6 @@ footer {
     width: 100%;
     margin-top: 50px;
 }
-
 footer a {
     text-decoration: none;
     color: #f0f0f0;
@@ -469,7 +471,6 @@ footer a {
     margin-right: 40px;
     margin-left: -80px; 
 }
-
 .image-right-pull {
     flex-direction: row-reverse;
     padding-left: 0;
@@ -560,7 +561,7 @@ footer a {
     }
 }
 
-/*----IMG Modal Styles----*/
+/*----Modal Styles----*/
 .modal {
     position: fixed;
     top: 0;
@@ -628,7 +629,7 @@ footer a {
     max-width: 90%;
 }
 
-/* --- PROJECTS/WRITING PAGE SPECIFIC STYLES --- */
+/* --- Writing --- */
 
 /* Subheadings for sections */
 .section-title {
@@ -798,9 +799,6 @@ footer a {
     color: white;
     border-color: #C59AEA;
 }
-
-/* --- Responsive Adjustments --- */
-
 @media (max-width: 768px) {
     .projects-grid {
         grid-template-columns: 1fr; /* Stack cards on smaller screens */
@@ -823,10 +821,8 @@ footer a {
     }
 }
 
-/* --- DESIGN PAGE SPECIFIC STYLES --- */
-
+/*----Design----*/
 .design-section-heading {
-    /* Uses the same style as your editing-heading for visual consistency */
     color: #222;
     font-size: 1.5rem;
     font-weight: 700;
@@ -834,17 +830,19 @@ footer a {
     margin-top: 40px;
     margin-bottom: 20px;
     padding-left: 10px;
-    border-left: 6px solid #C59AEA; /* Highlight with accent color */
+    border-left: 6px solid #C59AEA;
 }
-
+.software {
+    font-weight: 400;
+    font-size: 1.2rem;
+    text-transform: uppercase
+}
 .project-showcase-grid {
     display: grid;
-    /* Sets up for two columns by default */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     gap: 30px;
     margin-bottom: 40px;
 }
-
 .design-card {
     background-color: white;
     padding: 20px;
@@ -854,27 +852,22 @@ footer a {
     text-decoration: none;
     text-align: left;
     position: relative;
-    border-top: 5px solid transparent; /* Placeholder for hover effect */
+    border-top: 5px solid transparent;
 }
-
 .design-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-    border-top: 5px solid #C59AEA; /* Accent border on hover */
+    border-top: 5px solid #C59AEA;
 }
-
-/* Adjustments for grid spanning */
 .card-wide {
-    grid-column: span 2; /* Takes up full width on desktop if desired, otherwise acts like card-narrow */
+    grid-column: span 2;
 }
 .card-narrow {
     grid-column: span 1;
 }
 .card-full {
-    grid-column: 1 / -1; /* Takes full width of the grid */
+    grid-column: 1 / -1;
 }
-
-
 .design-thumbnail-placeholder {
     width: 100%;
     height: 200px;
@@ -888,7 +881,6 @@ footer a {
     font-style: italic;
     color: #888;
 }
-
 .design-card h4 {
     color: #222;
     font-size: 1.2rem;
@@ -896,56 +888,47 @@ footer a {
     margin-top: 0;
     margin-bottom: 5px;
 }
-
 .design-card p {
     color: #555;
     font-size: 0.95rem;
     line-height: 1.4;
     margin: 0;
 }
-
 .software-tag {
     position: absolute;
     top: 20px;
     right: 20px;
-    background-color: #333; /* Dark background */
-    color: white;
+    background-color: #7ad5c9;
+    color: #333;
     padding: 5px 10px;
     font-size: 0.7em;
     font-weight: 700;
     border-radius: 5px;
 }
-
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .project-showcase-grid {
-        grid-template-columns: 1fr; /* All items stack on mobile */
+        grid-template-columns: 1fr;
     }
     .card-wide, .card-narrow, .card-full {
-        grid-column: 1 / -1; /* Ensure all cards span full width */
+        grid-column: 1 / -1;
     }
 }
 
-
-
-
+/*----Contact----*/
 .contact-form {
     background: #f8f8f8;
     padding: 1.5rem;
     border-radius: 10px;
 }
-
 .form-field {
     margin-bottom: 1rem;
 }
-
 .form-field label {
     display: block;
     margin-bottom: 0.3rem;
     color: #444;
     text-align: left;
 }
-
 .form-field input,
 .form-field textarea {
     width: 100%;
@@ -956,7 +939,6 @@ footer a {
     border-radius: 5px;
     font-size: 1rem;
 }
-
 .submit-btn {
     background-color: #222;
     color: white;
@@ -967,33 +949,27 @@ footer a {
     font-size: 1rem;
     transition: background-color 0.3s ease;
 }
-
 .submit-btn:hover {
     background-color: #444;
 }
-
 .social-links {
     text-align: center;
 }
-
 .social-icons {
     display: flex;
     justify-content: center;
     gap: 1.5rem;
     margin-top: 0.5rem;
 }
-
 .social-icon {
     color: #444;
     transition: color 0.3s ease;
 }
-
 .social-icon svg {
     width: 24px;
     height: 24px;
     fill: currentColor;
 }
-
 .social-icon:hover {
     color: #C59AEA;
 }
