@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     // 1. Get all gallery items meant to open the modal (excluding the essay link).
-    const modalItems = document.querySelectorAll('.gallery-item:not(.essay)'); 
+    const modalItems = document.querySelectorAll('.thumb:not(.essay)'); 
 
     modalItems.forEach(item => {
         // Determine if the item is a video (logic for future use)
