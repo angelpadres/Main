@@ -17,7 +17,7 @@ body {
     overflow-x: hidden;
 }
 header {
-    background: linear-gradient(135deg, rgba(34, 34, 34, 0.4), rgba(51, 51, 51, 0.4)), url(images/lbsunset.jpg);
+    background: linear-gradient(135deg, rgba(34, 34, 34, 0.4), rgba(51, 51, 51, 0.4)), url(../images/lbsunset.jpg);
     color: white;
     background-size: cover;
     background-position: center;
@@ -630,8 +630,6 @@ footer a {
 }
 
 /* --- Writing --- */
-
-/* Subheadings for sections */
 .section-title {
     font-size: 1.5rem;
     font-weight: 700;
@@ -642,15 +640,11 @@ footer a {
     padding-bottom: 5px;
     border-bottom: 2px solid #ccc;
 }
-
-/* --- SECTION 1: MULTIMEDIA PROJECTS (Cards) --- */
-
 .projects-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 25px;
 }
-
 .multimedia-card {
     /* Mimics the general shape and shadow of your .text-block */
     background-color: white;
@@ -661,12 +655,10 @@ footer a {
     text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .multimedia-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
 }
-
 .media-placeholder {
     width: 100%;
     height: 150px;
@@ -696,6 +688,17 @@ footer a {
     margin-bottom: 20px;
     text-align: left; /* Add this line to center the button text and CTA */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.multimedia-card .card-image {
+    height: 11.5rem;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.multimedia-card .card-image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; 
 }
 
 /* Distinct Label/Tag */
