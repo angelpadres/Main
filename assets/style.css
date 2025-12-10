@@ -58,25 +58,20 @@ nav {
 nav ul {
     list-style-type: none;
     padding: 0;
-    width: fit-content; /* NEW: Allows UL to shrink to the minimum size needed for all links */
-    margin: 0 auto; /* NEW: Centers the UL perfectly within the NAV */
-    
+    width: fit-content;
+    margin: 0 auto;
     display: flex;
-    flex-wrap: nowrap; /* NEW: Prevents links from ever wrapping to a new line */
-    justify-content: center; /* Ensures content is centered if UL is smaller than nav */
-    gap: 1.5rem; /* MODIFIED: Use a fixed, larger gap for clear separation */
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 1.5rem;
 }
 nav ul li {
     font-size: 1.1rem;
-    
-    /* REMOVE min-width: It created fixed boxes which might not be what you want. */
-    /* REMOVE margin: We are using GAP for spacing instead. */
 }
 nav ul li a {
     color: white;
     text-decoration: none;
     transition: color 0.3s ease;
-    padding: 1rem 0; /* MODIFIED: Removed side padding from link, relying on GAP */
 }
 nav ul li a:hover {
     color: #7ad5c9;
@@ -87,11 +82,10 @@ nav .active_page {
 @media (max-width: 480px) {
     nav ul {
         font-size: x-small;
-        /* Allow gap to shrink slightly for mobile */
         gap: 0.8rem; 
     }
     nav ul li a {
-        padding: 0.5rem; /* Smaller padding on mobile */
+        padding: 0.5rem;
     }
 }
 main {
@@ -277,7 +271,7 @@ footer a {
 .back-link a:hover {
     color: #C59AEA;
 }
-@media (max-width: 480px) {
+@media (max-width: 650px) {
     .feature-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem; 
