@@ -59,14 +59,18 @@ nav {
 nav ul {
     list-style-type: none;
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
+    max-width: 1000px;
+    width: 90%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     gap: .5rem;
 }
 nav ul li {
     font-size: 1.1rem;
+    min-width: 120px;
+    text-align: center;
 }
 nav ul li a {
     color: white;
@@ -83,6 +87,10 @@ nav .active_page {
 @media (max-width: 480px) {
     nav ul {
         font-size: x-small;
+        justify-content: center;
+    }
+    nav ul li {
+        min-width: 80px;
     }
 }
 main {
@@ -733,7 +741,6 @@ footer a {
 .btn-primary:hover {
     background-color: #444;
 }
-
 .external-links {
     display: flex;
     flex-direction: column;
