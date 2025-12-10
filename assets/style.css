@@ -652,7 +652,6 @@ footer a {
     gap: 25px;
 }
 .multimedia-card {
-    /* Mimics the general shape and shadow of your .text-block */
     background-color: white;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -660,6 +659,7 @@ footer a {
     position: relative;
     text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
 }
 .multimedia-card:hover {
     transform: translateY(-5px);
@@ -679,7 +679,6 @@ footer a {
     font-style: italic;
     font-size: 0.9em;
 }
-
 .multimedia-card h3 {
     font-size: 1.25rem;
     font-weight: 700;
@@ -687,7 +686,6 @@ footer a {
     margin: 0 0 10px 0;
     text-align: center;
 }
-
 .multimedia-card p {
     font-size: 0.95rem;
     color: #555;
@@ -706,8 +704,6 @@ footer a {
     width: 100%;
     object-fit: cover; 
 }
-
-/* Distinct Label/Tag */
 .media-tag {
     position: absolute;
     top: 15px;
@@ -720,30 +716,23 @@ footer a {
     border-radius: 5px;
     letter-spacing: 0.5px;
 }
-
-/* General Button Style (reused for primary CTA) */
 .btn-cta {
     display: block;
     width: 100%;
-    padding: 10px 0; /* Adjusted padding to remove left/right padding conflict */
-    text-align: center; /* FIX: Centers the text within the full-width button */
+    text-align: center;
     text-decoration: none;
     font-weight: 700;
     border-radius: 5px;
     transition: background-color 0.3s ease;
     margin-top: auto; /* Push to bottom of card */
 }
-
 .btn-primary {
     background-color: #222; /* Your header/footer dark color */
     color: white;
 }
-
 .btn-primary:hover {
     background-color: #444;
 }
-
-/* --- SECTION 2: EXTERNAL WRITING PORTFOLIO (Distinct Links) --- */
 
 .external-links {
     display: flex;
@@ -751,7 +740,6 @@ footer a {
     gap: 15px;
     margin-bottom: 3rem;
 }
-
 .external-link-item {
     display: flex;
     align-items: center;
@@ -762,36 +750,30 @@ footer a {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.2s ease;
 }
-
 .external-link-item:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
 .link-icon {
     font-size: 2.2rem;
     margin-right: 20px;
     color: #555; /* Neutral icon color */
 }
-
 .link-info {
     padding-left: .75rem;
     flex-grow: 1;
     text-align: left;
 }
-
 .link-info h3 {
     margin: 0 0 5px 0;
     font-size: 1.15rem;
     font-weight: 700;
     color: #222;
 }
-
 .link-info p {
     margin: 0;
     font-size: 0.9rem;
     color: #777;
 }
-
 .btn-secondary {
     padding: 8px 15px;
     background-color: #f0f0f0; /* Your body background color */
@@ -802,7 +784,6 @@ footer a {
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
-
 .btn-secondary:hover {
     background-color: #C59AEA;
     color: white;
