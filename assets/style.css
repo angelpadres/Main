@@ -53,30 +53,30 @@ header h2 {
 nav {
     background-color: #333;
     padding: 1rem 0;
-    margin-bottom: 1rem;
     width: 100%;
 }
 nav ul {
     list-style-type: none;
     padding: 0;
-    margin: 0 auto;
-    max-width: 1000px;
-    width: 90%;
+    width: fit-content; /* NEW: Allows UL to shrink to the minimum size needed for all links */
+    margin: 0 auto; /* NEW: Centers the UL perfectly within the NAV */
+    
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: .5rem;
+    flex-wrap: nowrap; /* NEW: Prevents links from ever wrapping to a new line */
+    justify-content: center; /* Ensures content is centered if UL is smaller than nav */
+    gap: 1.5rem; /* MODIFIED: Use a fixed, larger gap for clear separation */
 }
 nav ul li {
     font-size: 1.1rem;
-    min-width: 120px;
-    text-align: center;
+    
+    /* REMOVE min-width: It created fixed boxes which might not be what you want. */
+    /* REMOVE margin: We are using GAP for spacing instead. */
 }
 nav ul li a {
     color: white;
     text-decoration: none;
     transition: color 0.3s ease;
-    padding: 1rem;
+    padding: 1rem 0; /* MODIFIED: Removed side padding from link, relying on GAP */
 }
 nav ul li a:hover {
     color: #7ad5c9;
@@ -87,10 +87,11 @@ nav .active_page {
 @media (max-width: 480px) {
     nav ul {
         font-size: x-small;
-        justify-content: center;
+        /* Allow gap to shrink slightly for mobile */
+        gap: 0.8rem; 
     }
-    nav ul li {
-        min-width: 80px;
+    nav ul li a {
+        padding: 0.5rem; /* Smaller padding on mobile */
     }
 }
 main {
@@ -133,7 +134,7 @@ footer {
     position: relative;    
     bottom: auto;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 footer a {
     text-decoration: none;
@@ -276,7 +277,7 @@ footer a {
 .back-link a:hover {
     color: #C59AEA;
 }
-@media (max-width: 768px) {
+@media (max-width: 480px) {
     .feature-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem; 
