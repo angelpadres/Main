@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Angel Padres Portfolio</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -37,7 +38,7 @@
         <div class="project-showcase-grid">
             
             <a href="images/design/infographic.png" class="design-card card-narrow">
-                <div class="design-thumbnail-placeholder thumb">
+                <div class="design-thumbnail thumb">
                      <img src="images/design/infographic.png" alt="Chocolate Infographic Preview">
                 </div><div class="overlay"><div class="text"></div></div>
                 <h4>Infographic: Unequal Bars, The Bittersweet Cost of Chocolate</h4>
@@ -46,7 +47,7 @@
             </a>
 
             <a href="images/design/CODicons.png" class="design-card card-narrow">
-                <div class="design-thumbnail-placeholder thumb">
+                <div class="design-thumbnail thumb">
                      <img src="images/design/CODicons.png" alt="Causes of Death Icon Set Preview">
                 </div><div class="overlay"><div class="text"></div></div>
                 <h4>Icon Set: Causes of Death</h4>
@@ -60,7 +61,7 @@
         <div class="project-showcase-grid">
             
             <a href="images/design/Poster.png" class="design-card card-narrow">
-                <div class="design-thumbnail-placeholder thumb">
+                <div class="design-thumbnail thumb">
                      <img src="images/design/Poster.png" alt="Poster Design Preview">
                 </div><div class="overlay"><div class="text"></div></div>
                 <h4>Conceptual Poster: The Mandalorian</h4>
@@ -68,8 +69,11 @@
                 <span class="software-tag">Photoshop</span>
             </a>
 
-            <a href="dreams-series.html" class="design-card card-narrow">
-                <div class="design-thumbnail-placeholder">[Dreams Series Photo Preview]</div>
+            <a href="#" class="design-card card-narrow" onclick="openDreamsGallery(); return false;">
+                <div class="design-thumbnail thumb">
+                    <img src="../Main/images/thumbnails/preview.png" alt="Dreams Series Photo Preview">
+                </div><div class="overlay"><div class="text"></div></div> 
+    
                 <h4>"A Night in the Dreams" Photo Series</h4>
                 <p>Demonstrates complex photo manipulation, masking, and non-destructive editing for conceptual visual storytelling.</p>
                 <span class="software-tag">Photoshop</span>
@@ -80,7 +84,7 @@
         <h3 class="design-section-heading">Strategic Visual Communication</h3>
         <div class="project-showcase-grid">
             <a href="entrepreneurial-pitch.html" class="design-card card-full">
-                <div class="design-thumbnail-placeholder">[Pitch Deck Preview Image]</div>
+                <div class="design-thumbnail thumb">[Pitch Deck Preview Image]</div>
                 <h4>Entrepreneurial Journalism Pitch Deck</h4>
                 <p>Full visual pitch and brand identity creation, demonstrating strategic information hierarchy and visual persuasion for business communication.</p>
                 <span class="software-tag">Strategy & Design</span>
@@ -88,12 +92,27 @@
         </div>
 
     </div>
-    <script src="assets/script.js"></script>
+    <script src="assets/design-script.js"></script>
 </main>
 
     <footer>
         <p>© 2025 Angel Padres &nbsp; |  <a id="footer" href="#">[click to reveal e‑mail]</a>  | &nbsp; All rights reserved</p>
     </footer>
+
+    <div id="dreams-gallery-modal" class="gallery-modal-overlay">
+
+        <span class="gallery-close-btn" onclick="closeDreamsGallery()">&times;</span>
+
+        <div class="gallery-main">
+            <img id="gallery-main-img" src="" alt="">
+            <p id="gallery-main-caption"></p>
+            <a class="gallery-prev" onclick="galleryChangeSlide(-1)">&#10094;</a>
+            <a class="gallery-next" onclick="galleryChangeSlide(1)">&#10095;</a>
+        </div>
+
+        <div id="gallery-thumb-grid" class="gallery-thumb-grid"></div>
+    </div>
+
     <script src="assets/footer.js"></script>
 </body>
 </html>
