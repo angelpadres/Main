@@ -37,19 +37,22 @@
         <h3 class="design-section-heading">Information Science & Visual Assets <span class="software">(Adobe Illustrator)</span></h3>
         <div class="project-showcase-grid">
             
-            <a href="images/design/infographic.png" class="design-card card-narrow">
+
+            <a href="javascript:void(0);" class="design-card card-narrow"
+                onclick="openOverlay('images/design/infographic.png','img')">
                 <div class="design-thumbnail thumb">
-                     <img src="images/design/infographic.png" alt="Chocolate Infographic Preview">
-                </div><div class="overlay"><div class="text"></div></div>
+                    <img src="images/design/infographic.png" alt="Chocolate Infographic Preview">
+                </div>
                 <h4>Infographic: Unequal Bars, The Bittersweet Cost of Chocolate</h4>
-                <p>Designed to visualize complex data points for the Information Science minor, and Journalism major focusing on clarity, hierarchy, and data narrative.</p>
+                <p>Designed to visualize complex data points for the Information Science minor...</p>
                 <span class="software-tag">Illustrator</span>
             </a>
 
-            <a href="images/design/CODicons.png" class="design-card card-narrow">
+            <a href="javascript:void(0);" class="design-card card-narrow"
+                onclick="openOverlay('images/design/CODicons.png','img')">
                 <div class="design-thumbnail thumb">
-                     <img src="images/design/CODicons.png" alt="Causes of Death Icon Set Preview">
-                </div><div class="overlay"><div class="text"></div></div>
+                    <img src="images/design/CODicons.png" alt="Causes of Death Icon Set Preview">
+                </div>
                 <h4>Icon Set: Causes of Death</h4>
                 <p>Vector asset creation for web or print, demonstrating versatility in style and visual branding guidelines.</p>
                 <span class="software-tag">Illustrator</span>
@@ -60,44 +63,49 @@
         <h3 class="design-section-heading">Creative Manipulation & Compositing <span class="software">(Adobe Photoshop)</span></h3>
         <div class="project-showcase-grid">
             
-            <a href="images/design/Poster.png" class="design-card card-narrow">
+            <a href="javascript:void(0);" class="design-card card-narrow"
+                onclick="openOverlay('images/design/Poster.png','img')">
                 <div class="design-thumbnail thumb">
-                     <img src="images/design/Poster.png" alt="Poster Design Preview">
-                </div><div class="overlay"><div class="text"></div></div>
+                    <img src="images/design/Poster.png" alt="Poster Design Preview">
+                </div>
                 <h4>Conceptual Poster: The Mandalorian</h4>
                 <p>Raster image compositing and manipulation using advanced layer techniques, textures, and font selection.</p>
                 <span class="software-tag">Photoshop</span>
             </a>
 
-            <a href="#" class="design-card card-narrow" onclick="openDreamsGallery(); return false;">
+            
+            <a href="javascript:void(0);" class="design-card card-narrow"
+                onclick="openOverlay('images/thumbnails/preview.png','img')">
                 <div class="design-thumbnail thumb">
-                    <img src="../Main/images/thumbnails/preview.png" alt="Dreams Series Photo Preview">
+                    <img src="images/thumbnails/preview.png" 
+                        alt="Dreams Series Photo Preview">
                 </div><div class="overlay"><div class="text"></div></div> 
-    
                 <h4>"A Night in the Dreams" Photo Series</h4>
                 <p>Demonstrates complex photo manipulation, masking, and non-destructive editing for conceptual visual storytelling.</p>
                 <span class="software-tag">Photoshop</span>
             </a>
 
         </div>
+
         
         <h3 class="design-section-heading">Strategic Visual Communication</h3>
         <div class="project-showcase-grid">
-            <a href="images/design/Tether Pitch Deck.pdf" class="design-card card-full" target="_blank">
-                <div class="design-thumbnail thumb">
-                     <img src="images/thumbnails/Tether Pitch Deck.jpg" alt="Pitch Deck Preview Image">
-                </div><div class="overlay"><div class="text"></div></div>
 
+            <a href="javascript:void(0);" class="design-card card-full"
+                onclick="openOverlay('images/design/Tether Pitch Deck.pdf','pdf')">
+                <div class="design-thumbnail thumb">
+                    <img src="images/thumbnails/Tether Pitch Deck.jpg" alt="Pitch Deck Preview Image">
+                </div>
                 <h4>Entrepreneurial Journalism Pitch Deck</h4>
-                <p>Full visual pitch and brand identity creation, demonstrating strategic information hierarchy and visual persuasion for business communication.</p>
-                <span class="software-tag">Strategy & Design</span>
+                <p>Full visual pitch and brand identity creation...</p>
+                <span class="software-tag">Strategy &amp; Design</span>
             </a>
         </div>
 
-    </div>
-    <script src="assets/design-script.js"></script>
+    
 </main>
 
+    <script src="assets/design-script.js"></script>
     <footer>
         <p>© 2025 Angel Padres &nbsp; |  <a id="footer" href="#">[click to reveal e‑mail]</a>  | &nbsp; All rights reserved</p>
     </footer>
@@ -115,6 +123,12 @@
 
         <div id="gallery-thumb-grid" class="gallery-thumb-grid"></div>
     </div>
+
+
+<div id="lightbox" class="lightbox-overlay" style="display:none;">
+    <span class="lightbox-close" onclick="closeOverlay()">&times;</span>
+    <div id="lightbox-content" class="lightbox-content"></div>
+</div>
 
     <script src="assets/footer.js"></script>
 </body>

@@ -77,3 +77,70 @@ document.addEventListener('keydown', e => {
     if (e.key === 'ArrowRight') galleryChangeSlide(1);
     if (e.key === 'Escape')     closeDreamsGallery();
 });
+
+/* -------------------------------------------------
+   PDF LIGHTBOX – simple open / close logic
+   ------------------------------------------------- */
+/* -------------------------------------------------
+   REUSABLE LIGHTBOX LOGIC
+   ------------------------------------------------- */
+
+/* -------------------------------------------------
+   REUSABLE LIGHTBOX LOGIC
+   ------------------------------------------------- */
+
+/**
+ * Open the overlay and inject the appropriate element.
+ *
+ * @param {string} url  – URL of the image / video / PDF.
+ * @param {string} type – "img", "video" or "pdf".
+ */
+function openOverlay(url, type){
+    const content = document.getElementById('lightbox-content');
+    content.innerHTML = '';               // clear any previous markup
+
+    let el;
+    if (type === 'img'){
+        el = document.createElement('img');
+        el.src = url;
+        el.alt = 'Preview';
+    } else if (type === 'video' || type === 'pdf'){
+        // both video and PDF can be shown with an <iframe>
+        el = document.createElement('iframe');
+        el.src = url;
+        // allow fullscreen for videos
+        if (type === 'video'){
+            el.setAttribute('allow','autoplay; fullscreen; picture-in-picture');
+        }
+        el.setAttribute('allowfullscreen','');
+    } else {
+        console.warn('Unsupported overlay type:',type);
+        return;
+    }
+
+    content.appendChild(el);
+    document.getElementById('lightbox').style.display = 'flex';
+    document.body.style.overflow = 'hidden';   // prevent background scroll
+}
+
+/**
+ * Close the overlay and clean up.
+ */
+function closeOverlay(){
+    document.getElementById('lightbox').style.display = 'none';
+    document.body.style.overflow = 'auto';
+    document.getElementById('lightbox-content').innerHTML = '';
+}
+
+/* ---- optional: close with Escape key or click‑outside ---- */
+document.addEventListener('keydown', e=>{
+    if (e.key === 'Escape' &&
+        document.getElementById('lightbox').style.display === 'flex'){
+        closeOverlay();
+    }
+});
+document.getElementById('lightbox').addEventListener('click', e=>{
+    if (e.target === e.currentTarget){   // click on the dark background
+        closeOverlay();
+    }
+});
