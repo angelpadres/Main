@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Portfolio - Retro TV Style</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    
+<style>
+/* -------------------------------------------------
+    GLOBAL / TYPOGRAPHY
+    ------------------------------------------------- */
+body { margin: 0; font-family: 'Montserrat', sans-serif; background: #fafafa; color: #222; }
+header { background: #333; color: #fff; padding: 15px; text-align: center; }
+main { max-width: 1200px; margin: 0 auto; padding: 20px; }
+h2 { margin-top: 0; }
+p { line-height: 1.5; }
+
+/* -------------------------------------------------
+    GRID THAT HOLDS EACH TV UNIT
+    ------------------------------------------------- */
+.video-showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
+    margin-top: 30px;
+}
+@media(max-width:850px){
+    .video-showcase-grid{grid-template-columns:1fr;}
+}
+
+/* -------------------------------------------------
+    1️⃣ OUTER WRAPPER – defines the TV’s overall aspect ratio
+    ------------------------------------------------- */
+.tv-unit-container {
+    position: relative;
+    /* Use the aspect ratio of your TV image for the whole container */
+    aspect-ratio: 610/430; 
+    overflow: hidden;
+    width: 100%;
+    /* New: Use a background color to match the TV base */
+    background: #333; 
+    border-radius: 8px; /* Round the whole unit */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* -------------------------------------------------
+    2️⃣ THE FRAME – TV PNG as a background image
+    ------------------------------------------------- */
+.tv-screen-bezel {
+    position: absolute;
+    inset: 0;
+    /* CRITICAL: Your background image path */
+    background: url("images/design/vintage_tv.png") no-repeat center/cover;
+    /* Must reserve space for the text panel at the bottom */
+    height: calc(100% - 100px); /* Reserve 100px for the text panel */
+}
+
+/* -------------------------------------------------
+    3️⃣ VIDEO PLAYER – the *screen* cut‑out inside the frame
+    ------------------------------------------------- */
+/* ----  Adjust these four values to match your PNG’s screen ---- */
+:root {
+    /* Using your measured values */
+    --screen-top: 10%; 
+    --screen-left: 4.92%;
+    --screen-width: 71.48%;
+    --screen-height: 78.37%;
+}
+.video-player {
+    position: absolute;
+    top: var(--screen-top);
+    left: var(--screen-left);
+    width: var(--screen-width);
+    height: var(--screen-height);
+    overflow: hidden;
+    background: #000;
+}
+
+/* -------------------------------------------------
+    4️⃣ IFRAME (Vimeo / YouTube) – fills the .video-player box
+    ------------------------------------------------- */
+.video-player iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    border: none;
+}
+
+/* -------------------------------------------------
+    5️⃣ TEXT PANEL – NOW FIXED TO THE BOTTOM
+    ------------------------------------------------- */
+.tv-text-panel {
+    /* CRITICAL FIX: Position the text panel absolutely at the bottom, 
+       outside of the bezel's height calculation. */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%; 
+    height: 100px; /* Explicit height for the text panel */
+    
+    background-color: #fff; /* White control panel */
+    padding: 15px 30px; /* Adjusted padding */
+    border-top: 1px solid #999;
+    /* Remove bottom border radius, handled by container */
+    
+    /* Ensure text is visible above the bottom edge */
+    box-sizing: border-box; 
+    z-index: 2; /* Ensure it stays on top of the container background */
+}
+
+/* 6. CAPTION/TEXT STYLES */
+.tv-text-panel h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 0; 
+    margin-bottom: 5px;
+}
+.tv-text-panel p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+.software-tag {
+    display: inline-block;
+    background-color: #C59AEA; 
+    color: #333;
+    padding: 3px 8px;
+    font-size: 0.75em;
+    font-weight: 700;
+    border-radius: 3px;
+    margin-top: 5px;
+}
+</style>
+</head>
+
+<body>
+    <header style="background-color:#333; color:white; padding:15px; text-align:center;"><h1>Video Portfolio</h1></header>
+
+    <main>
+        <h2>Video Storytelling Portfolio</h2>
+
+        <p>This section showcases work in short-form public service announcements (PSAs) and multimedia video production, demonstrating skills in editing, sequencing, and motion graphics software.</p>
+
+        <div class="video-showcase-grid">
+            
+            <div class="tv-unit-container">
+                <div class="tv-screen-bezel">
+                    <div class="video-player">
+                    <iframe src="https://player.vimeo.com/video/702701425?title=0&byline=0&portrait=0&badge=0&autopause=0"
+                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            title="Sun Safety"></iframe>
+                </div>
+            </div>
+                
+                <div class="tv-text-panel">
+                    <h4>PSA: [Video Title 1]</h4>
+                    <p>A short-form public service announcement demonstrating rapid editing and clear messaging for digital distribution.</p>
+                    <span class="software-tag">Premiere Pro, After Effects</span>
+                </div>
+            </div>
+
+            <div class="tv-unit-container">
+                <div class="tv-screen-bezel">
+                    <div class="video-player">
+                        
+                        <iframe 
+                            src="https://player.vimeo.com/video/123456789" 
+                            style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+                            frameborder="0" 
+                            allow="autoplay; fullscreen; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+                
+                <div class="tv-text-panel">
+                    <h4>Photographer Portfolio: [Video Title 2]</h4>
+                    <p>A multimedia slideshow and interview package focusing on visual narrative structure and timing to enhance a subject's story.</p>
+                    <span class="software-tag">iMovie/Final Cut, Audition</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer style="text-align:center; padding:20px; color:#888; font-size:0.8rem;">
+        © 2025 Angel Padres | All rights reserved
+    </footer>
+</body>
+</html>
