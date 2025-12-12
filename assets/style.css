@@ -901,12 +901,16 @@ footer a {
     font-weight: 700;
     border-radius: 5px;
 }
-/* -------------------------------------------------
-   LIGHTBOX OVERLAY – used for the PDF preview
-   ------------------------------------------------- */
-
-
-/* close (×) button */
+.lightbox-overlay{
+    display:none;  
+    position:fixed;
+    inset:0;  
+    background:rgba(0,0,0,.9);
+    z-index:10000; 
+    justify-content:center;
+    align-items:center;
+    overflow:hidden; 
+}
 .lightbox-close{
     position:absolute;
     top:20px;
@@ -920,69 +924,22 @@ footer a {
 .lightbox-close:hover{color:#bbb;}
 
 .lightbox-content{
-    max-width:90vw;            /* never exceed viewport width */
-    max-height:90vh;           /* never exceed viewport height */
-    background:#fff;
-    border-radius:8px;
-    box-shadow:0 8px 20px rgba(0,0,0,.5);
-    overflow:auto;            /* scrollbars if content is taller than the box */
-}
-
-/* -------------------------------------------------
-   REUSABLE LIGHTBOX – keep everything inside the viewport
-   ------------------------------------------------- */
-.lightbox-overlay{
-    display:none;                     /* hidden until opened */
-    position:fixed;
-    inset:0;                          /* top/right/bottom/left = 0 */
-    background:rgba(0,0,0,.9);
-    z-index:10000;                    /* above everything else */
-    justify-content:center;
+    max-width:90vw;  
+    max-height:90vh;
+    width:100%; 
+    height:100%;   
+    background:transparent;
+    display:flex; 
+    justify-content:center; 
     align-items:center;
-    overflow:hidden;                  /* prevent page‑scroll when overlay is open */
+    overflow:auto;  
 }
-
-/* -----------------------------------------------------------------
-   The box that actually holds the content (image / video / PDF)
-   ----------------------------------------------------------------- */
-/* -------------------------------------------------
-   REUSABLE LIGHTBOX – keep everything inside the viewport
-   ------------------------------------------------- */
-.lightbox-overlay{
-    display:none;                     /* hidden until opened */
-    position:fixed;
-    inset:0;                          /* top/right/bottom/left = 0 */
-    background:rgba(0,0,0,.9);        /* dark transparent backdrop */
-    z-index:10000;                    /* above everything else */
-    justify-content:center;           /* center the inner box horizontally */
-    align-items:center;               /* center the inner box vertically */
-    overflow:hidden;                  /* prevent page‑scroll when overlay is open */
-}
-
-/* -----------------------------------------------------------------
-   The box that actually holds the content (image / video / PDF)
-   ----------------------------------------------------------------- */
-.lightbox-content{
-    max-width:90vw;            /* never exceed 90 % of viewport width */
-    max-height:90vh;           /* never exceed 90 % of viewport height */
-    width:100%;                /* stretch to the max‑width when possible */
-    height:100%;               /* stretch to the max‑height when possible */
-    background:transparent;    /* <-- remove the white rectangle */
-    display:flex;              /* <-- make it a flex container */
-    justify-content:center;    /* center child horizontally */
-    align-items:center;        /* center child vertically */
-    overflow:auto;             /* scrollbars appear only inside the box */
-}
-
-/* -----------------------------------------------------------------
-   Content‑specific sizing – applies to every element we inject
-   ----------------------------------------------------------------- */
 .lightbox-content img{
-    max-width:100%;            /* fill the width of the container */
-    max-height:100%;           /* never exceed the container’s height (90vh) */
+    max-width:100%; 
+    max-height:100%; 
     width:auto;
     height:auto;
-    object-fit:contain;        /* keep the whole picture visible */
+    object-fit:contain;  
     display:block;
     margin:auto;
 }
@@ -993,12 +950,90 @@ footer a {
     display:block;
 }
 .lightbox-content pdf{
-    width:90vw;          /* 90 % of viewport width */
-    height:90vh;         /* 90 % of viewport height */
+    width:90vw;
+    height:90vh;
     border:none;
     box-shadow:0 8px 20px rgba(0,0,0,.5);
     border-radius:8px;
 }
+.lightbox-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(200px, auto);
+    gap: 16px;
+    max-width:90vw;
+    max-height:90vh;
+    overflow:auto;
+    padding:12px;
+}
+.grid-thumb{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    cursor:pointer;
+    border-radius:6px;
+    transition:transform .2s ease, box-shadow .2s ease;
+}
+.lightbox-grid > img:last-child{
+    grid-column: span 2;
+}
+.grid-thumb:hover{
+    transform:scale(1.04);
+    box-shadow:0 4px 12px rgba(0,0,0,.4);
+}
+.slide-wrapper{
+    position:relative;
+    max-width:90vw;
+    max-height:90vh;
+    width: 100%;
+    height: 100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow: hidden;
+}
+.slide-img{
+    max-width:100%;
+    max-height:100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius:8px;
+}
+.slide-caption{
+    margin-top:.8rem;
+    color:#eee;
+    font-size:1rem;
+}
+.slide-arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:2.5rem;
+    color:#fff;
+    cursor:pointer;
+    user-select:none;
+    padding:0.4rem 0.6rem;
+    background:rgba(0,0,0,.3);
+    border-radius:4px;
+}
+.slide-arrow.left{ left:10px; }
+.slide-arrow.right{ right:10px; }
+.slide-arrow:hover{ background:rgba(0,0,0,.6); }
+.slide-back{
+    position:absolute;
+    top:12px;
+    left:12px;
+    font-size:1rem;
+    color:#fff;
+    cursor:pointer;
+    background:rgba(0,0,0,.4);
+    padding:.3rem .6rem;
+    border-radius:4px;
+}
+.slide-back:hover{ background:rgba(0,0,0,.7); }
 @media (max-width: 768px) {
     .project-showcase-grid {
         grid-template-columns: 1fr;
@@ -1006,118 +1041,6 @@ footer a {
     .card-wide, .card-narrow, .card-full {
         grid-column: 1 / -1;
     }
-}
-
-/* -------------------------------------------------
-   OVERLAY FOR THE GRID (outer modal)
-   ------------------------------------------------- */
-.gallery-modal-overlay {
-    display: none;                     /* hidden until opened */
-    position: fixed;
-    inset: 0;                          /* shorthand for top/right/bottom/left */
-    background: rgba(0,0,0,.85);
-    z-index: 10000;
-    justify-content: center;
-    align-items: center;
-    overflow-y: auto;
-    padding: 40px 20px;
-}
-
-/* Close button for the grid modal */
-.gallery-close-btn {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    color: #f1f1f1;
-    font-size: 38px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: .3s;
-}
-.gallery-close-btn:hover { color: #bbb; }
-
-/* ------- GRID OF THUMBNAILS (inside the outer modal) ------- */
-.gallery-thumb-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 18px;
-    max-width: 960px;
-    width: 100%;
-}
-.grid-thumb {
-    width: 100%;
-    height: 180px;                     /* forces a square */
-    object-fit: cover;                 /* keeps aspect ratio, crops excess */
-    border-radius: 6px;
-    cursor: pointer;
-    transition: transform .2s ease, box-shadow .2s ease;
-}
-.grid-thumb:hover {
-    transform: scale(1.03);
-    box-shadow: 0 4px 12px rgba(0,0,0,.4);
-}
-
-/* -------------------------------------------------
-   FULLSCREEN VIEWER (inner overlay)
-   ------------------------------------------------- */
-.fullscreen-overlay {
-    display: none;                     /* hidden until opened */
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.95);
-    z-index: 11000;                    /* above the grid modal */
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    overflow: hidden;
-}
-
-/* Close button for fullscreen */
-.fs-close-btn {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    color: #f1f1f1;
-    font-size: 38px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: .3s;
-}
-.fs-close-btn:hover { color: #bbb; }
-
-/* navigation arrows (inside fullscreen) */
-.fs-prev,
-.fs-next {
-    position: absolute;
-    top: 50%;
-    color: #f1f1f1;
-    font-size: 48px;
-    padding: 8px 12px;
-    cursor: pointer;
-    user-select: none;
-    background: rgba(0,0,0,.3);
-    border-radius: 4px;
-    transform: translateY(-50%);
-}
-.fs-prev { left: 20px; }
-.fs-next { right: 20px; }
-.fs-prev:hover,
-.fs-next:hover { background: rgba(0,0,0,.6); }
-
-/* The large image itself */
-#fs-image {
-    max-width: 90vw;
-    max-height: 80vh;
-    border-radius: 8px;
-    box-shadow: 0 8px 20px rgba(0,0,0,.5);
-}
-
-/* Caption below the fullscreen image */
-#fs-caption {
-    margin-top: 12px;
-    color: #eee;
-    font-size: 1rem;
-    text-align: center;
 }
 
 /*----Video----*/
