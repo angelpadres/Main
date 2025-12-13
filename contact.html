@@ -26,45 +26,53 @@
 <main>
     <h2>Email Me</h2>
 
-    <div class="text-block">
+    <div class="contact-page">
 
-    <!-- -------------------------------------------------
-         The form – notice the action points to /api/contact
-         (the Netlify/Vercel function we built earlier)
-         ------------------------------------------------- -->
     <form id="contactForm"
-          class="contact-form"
-          action="/api/contact"
-          method="POST">
+        class="contact-form"
+        action="https://formspree.io/f/mpwvkekr"
+        method="POST">
 
-        <!-- ----- Name ----- -->
-        <div class="form-field">
-            <label for="name">Your name</label>
-            <input type="text" id="name" name="name" required>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text"
+                id="name"
+                name="name"
+                required>
+        </div>
+      
+        <div class="form-group">
+            <label for="email">E‑mail:</label>
+            <input type="email"
+                id="email"
+                name="_replyto"
+                required>
+        </div>
+      
+        <div class="form-group">
+            <label for="subject">Subject:</label>
+            <input type="text"
+                id="subject"
+                name="subject"
+                required>
+        </div>
+      
+        <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message"
+                name="message"
+                rows="5"
+                required></textarea>
         </div>
 
-        <!-- ----- E‑mail ----- -->
-        <div class="form-field">
-            <label for="email">Your e‑mail</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-
-        <!-- ----- Message ----- -->
-        <div class="form-field">
-            <label for="msg">Message</label>
-            <textarea id="msg" name="message" rows="6" required></textarea>
-        </div>
-
-        <!-- ----- Honeypot (invisible to humans) ----- -->
         <div style="position:absolute; left:-9999px;">
             <label>Leave blank <input name="website"></label>
         </div>
-
-        <!-- ----- Submit button ----- -->
-        <button type="submit" class="submit-btn">Send</button>
+      
+        <button type="submit" class="submit-btn">Send Message</button>
+        <input type="hidden" name="_next" value="https://angelpadres.com/thank_you.html">
     </form>
 
-    <!-- Status message (success / error) -->
     <div id="status" style="margin-top:1rem;font-weight:bold;"></div>
 
     <div class="social-links">
@@ -81,32 +89,9 @@
                 </svg>
             </a>
         </div>
-    </div>
-
+    </div></div>
 </main>
 
-    <script>
-        const form = document.getElementById('contactForm');
-        const status = document.getElementById('status');
-
-        form.addEventListener('submit', async e => {
-            e.preventDefault();               // stop normal navigation
-            status.textContent = 'Sending…';
-
-            const data = new FormData(form);
-            const response = await fetch(form.action, {
-                method: 'POST',
-                body: data
-            });
-
-            if (response.ok) {
-                status.textContent = '✅ Message sent! Thanks for reaching out.';
-                form.reset();
-            } else {
-                status.textContent = '❌ Oops – something went wrong.';
-            }
-        });
-    </script>
 </body>
     <footer>
         <p>© 2025 Angel Padres &nbsp; |  <a id="footer" href="#">[click to reveal e‑mail]</a>  | &nbsp; All rights reserved</p>
