@@ -720,7 +720,7 @@ footer a {
 }
 .btn-cta {
     display: block;
-    width: 100%;
+    width: 90%;
     text-align: center;
     text-decoration: none;
     font-weight: 700;
@@ -731,6 +731,7 @@ footer a {
 .btn-primary {
     background-color: #222; 
     color: white;
+    padding: .5rem;
 }
 .btn-primary:hover {
     background-color: #444;
