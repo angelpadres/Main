@@ -77,16 +77,6 @@ nav ul li a.nav-item:hover {
 nav ul li.active_page .nav-item {     
     color: #C59AEA;              
 }
-
-@media (max-width: 480px) {
-    nav ul {
-        font-size: x-small;
-        gap: .5rem;
-    }
-    nav ul li .nav-item {
-        padding: .5rem;
-    }
-}
 main {
     margin: 2rem auto;
     padding: 1rem;
@@ -133,6 +123,15 @@ footer a {
     text-decoration: none;
     color: #f0f0f0;
     padding: .5rem;
+}
+@media (max-width: 480px) {
+    nav ul {
+        font-size: x-small;
+        gap: .5rem;
+    }
+    nav ul li .nav-item {
+        padding: .5rem;
+    }
 }
 
 /*----WIP----*/

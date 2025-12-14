@@ -1,20 +1,18 @@
 document.addEventListener('DOMContentLoaded', (event) => {
-    // 1. Get all gallery items meant to open the modal (excluding the essay link).
+    
     const modalItems = document.querySelectorAll('.thumb:not(.essay)'); 
 
     modalItems.forEach(item => {
-        // Determine if the item is a video (logic for future use)
+
         const isVideo = item.classList.contains('video-item');
         
         item.addEventListener('click', (e) => {
-            // IMPORTANT: Prevent default navigation ONLY for items meant to open the modal.
-            // Since the photo items are intended to open the modal, we prevent their default link action.
             e.preventDefault(); 
 
             let src, type, caption, details;
 
             if (!isVideo) {
-                // Image Logic
+
                 const img = item.querySelector('img');
                 if (!img) return; 
 
@@ -23,7 +21,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 caption = item.dataset.caption || "Caption pending (Lightroom data incomplete).";
                 details = item.dataset.details || "Technical details pending.";
             } else {
-                // Video Logic (Handles the video item if you reintroduce it)
+
                 const iframe = item.querySelector('iframe');
                 if (!iframe) return; 
 
@@ -37,7 +35,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     });
 
-    // 2. MODAL CREATION FUNCTION (Handles both image and video)
+
     function openModal(src, type, caption, details) {
         const modal = document.createElement('div');
         modal.className = 'modal';
@@ -45,25 +43,25 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const modalContent = document.createElement('div');
         modalContent.className = 'modal-content';
 
-        // FIX A: Stop clicks on the content area from propagating to the background.
+
         modalContent.addEventListener('click', (e) => {
             e.stopPropagation(); 
         });
         
-        // --- CREATE CLOSE BUTTON ---
+
         const closeButton = document.createElement('span');
-        closeButton.innerHTML = '&times;'; // HTML entity for 'x'
+        closeButton.innerHTML = '&times;'; 
         closeButton.className = 'modal-close-btn'; 
         modalContent.appendChild(closeButton);
         
-        // --- CLOSE BUTTON LISTENER ---
+
         closeButton.addEventListener('click', () => {
             if (modal.parentNode) {
                 document.body.removeChild(modal);
             }
         });
 
-        // Handle Image vs. Video content insertion
+
         if (type === 'video') {
             const iframe = document.createElement('iframe');
             iframe.src = src;
@@ -80,7 +78,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             modalContent.appendChild(img);
         }
 
-        // Text Content and Details append logic
+
         const textContent = document.createElement('div');
         textContent.className = 'modal-text';
 
@@ -99,8 +97,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         modalContent.appendChild(textContent);
         modal.appendChild(modalContent);
 
-        // 3. Close Modal Listener (Background Click)
-        // This only fires if the click target is the modal container itself.
+
         modal.addEventListener('click', (e) => {
             if (e.target === modal) { 
                 document.body.removeChild(modal);

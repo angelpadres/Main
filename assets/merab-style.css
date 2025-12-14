@@ -132,3 +132,77 @@ main p {
     background-color: #C59AEA;
     margin: 30px auto 30px auto;
 }
+
+@media (max-width: 768px) {
+
+    main{
+        width: 95%;  
+        padding: 40px 30px;  
+        margin: 20px auto;  
+        font-size: 1rem; 
+    }
+    .article-header h1{
+        font-size: 2.2rem;  
+    }
+    .article-subhead{
+        font-size: 0.78rem;  
+    }
+    .back-link{
+        position: static; 
+        margin-bottom: 1rem; 
+    }
+    .back-link a{
+        font-size: 0.95rem;
+        padding: 8px 12px;
+    }
+    .video-embed,
+    .soundcloud-embed{
+        margin: 2rem auto;
+        padding: 8px;
+        max-width: 100%;
+    }
+    .merab-divider{
+        margin: 20px 0;
+    }
+    .article-end-cap{
+        width: 40px;
+        margin: 20px auto;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    main{
+        width: 98%;
+        padding: 30px 15px;
+        font-size: 0.95rem;
+    }
+    .article-header h1{
+        font-size: 1.9rem;
+    }
+    .article-subhead{
+        font-size: 0.73rem;
+    }
+    .back-link a{
+        font-size: 0.85rem;
+        padding: 6px 10px;
+    }
+    main p{
+        margin-bottom: 1.2em;
+    }
+    .caption{
+        font-size: 0.78rem;
+    }
+    .merab-divider{
+        margin: 15px 0;
+    }
+    .article-end-cap{
+        width: 30px;
+        margin: 15px auto;
+    }
+}
+
+.lightbox-overlay{
+    background: rgba(0,0,0,.9); 
+}

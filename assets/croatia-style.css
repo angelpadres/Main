@@ -238,3 +238,131 @@ header::before {
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
+
+
+@media (max-width: 768px) {
+    .container{
+        width: 95%;
+        padding: auto; 
+    }
+    header.main h1{
+        font-size: 3rem; 
+    }
+    header.main p{
+        font-size: 1.2rem;
+        max-width: 80%;
+    }
+    body{
+        overflow-x: hidden; 
+    }
+    .back-link a{
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+    .grid{
+        grid-template-columns: 1fr; 
+        gap: 1.5rem;
+    }
+    .card img{
+        height: 200px; 
+    }
+    .card-content h3{
+        font-size: 1.3rem;
+    }
+    h1, h2, h3{
+        line-height: 1.2;
+    }
+    h1{
+        font-size: 3.5rem;
+    }
+    h2{
+        font-size: 2.2rem;
+    }
+    h3{
+        font-size: 1.6rem;
+    }
+    body{
+        font-size: 1rem;
+    }
+    .video-container,
+    .carousel{
+        height: 350px; 
+    }
+    .carousel-item{
+        height: 350px;
+    }
+    .blog-post{
+        padding: 1.5rem;
+    }
+    .blog-post img{
+        height: 300px; 
+    }
+    .scroll-cue{
+        font-size: 0.9rem;
+        bottom: 20px;
+    }
+    footer{
+        position: relative;
+        width: 100vw;
+        left: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .container{
+        width: 97%;
+        padding: auto;
+    }
+    header.main h1{
+        font-size: 2.4rem;
+    }
+    header.main p{
+        font-size: 1rem;
+        max-width: 90%;
+    }
+    .back-link a{
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
+    .card img{
+        height: 150px;  
+    }
+    .card-content h3{
+        font-size: 1.2rem;
+    }
+    h1{
+        font-size: 2.2rem;
+    }
+    h2{
+        font-size: 1.8rem;
+    }
+    h3{
+        font-size: 1.4rem;
+    }
+    body{
+        font-size: 0.95rem;
+    }
+    .video-container,
+    .carousel{
+        height: 250px;
+    }
+    .carousel-item{
+        height: 250px;
+    }
+    .blog-post{
+        padding: 1rem;
+    }
+    .blog-post img{
+        height: 200px;
+    }
+    .scroll-cue{
+        font-size: 0.8rem;
+        bottom: 15px;
+    }
+}
+
+.lightbox-overlay{
+    background: rgba(0,0,0,.9); 
+}
