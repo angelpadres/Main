@@ -17,8 +17,22 @@
     <nav aria-label="Main navigation">
         <ul>
             <li><a href="index.html" class="nav-item">Home</a></li>
-            <li><a href="about.html" class="nav-item">About</a></li>
-            <li><a href="projects.html" class="nav-item">Projects</a></li>
+            <li class="dropdown">
+                <a href="about.html" class="nav-item">About</a>
+                <div class="dropdown-content">
+                    <a href="about.html">About Me</a>
+                    <a href="philosophy.html">Work Philosophy</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="projects.html" class="nav-item">Projects</a>
+                <div class="dropdown-content">
+                    <a href="design.html">Design & Information Vizualization</a>
+                    <a href="photos.html">Photography</a>
+                    <a href="video.html">Video Production</a>
+                    <a href="writing.html">Writing & Research</a>
+                </div>
+            </li>
             <li><a href="resume.html" class="nav-item">Resume</a></li>
             <li class="active_page" aria-current="page"><span class="nav-item">Contact</span></li>
         </ul>

@@ -108,6 +108,10 @@ main {
     text-align: left;
     overflow-wrap: anywhere;
 }
+.text-block a {
+    color: #333; 
+    text-decoration: underline;
+}
 footer {
     background-color: #222;
     color: white;
@@ -132,6 +136,37 @@ footer a {
     nav ul li .nav-item {
         padding: .5rem;
     }
+}
+
+/* --- STRUCTURAL DROP-DOWN MENU --- */
+.dropdown {
+    position: relative;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
+    z-index: 10;
+    top: 100%;
+    border-radius: 4px;
+    padding: 0.5rem 0;
+}
+.dropdown-content a {
+    color: #fff;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    font-size: 1rem;
+    transition: color .3s ease;
+}
+.dropdown-content a:hover {
+    color: #7ad5c9;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
 /*----WIP----*/
@@ -197,6 +232,50 @@ footer a {
         margin: 0 auto;
     }
 
+}
+
+/*---- Work Philosophy Page ----*/
+.philosophy-grid {
+    max-width: 65rem;
+    width: 90%;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 12px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+.philosophy-txt {
+    text-align: left;
+}
+.philosophy-txt p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+.philosophy-txt a {
+    color: #333; 
+    text-decoration: underline;
+}
+.philosophy-img {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.philosophy-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: block;
+}
+@media (max-width: 820px) {
+    .philosophy-grid {
+        grid-template-columns: 1fr; 
+    }
 }
 
 /*----Projects----*/
@@ -1254,13 +1333,12 @@ footer a {
     letter-spacing: 1px;
     text-align: left;
 }
-.btn-download {
+a.btn-download {
     display: block;    
     width: max-content;  
     margin: 1rem auto 0; 
-    
     background-color: #222;
-    color: #fff;
+    color: #ffffff;
     padding: 0.6rem 1.5rem;
     text-decoration: none;
     border-radius: 4px;
@@ -1268,11 +1346,9 @@ footer a {
     font-weight: bold;
     transition: background-color 0.3s;
 }
-.btn-download:hover {
+a.btn-download:hover {
     background-color: #555;
-}
-.btn-download:hover {
-    background-color: #555;
+    color: #ffffff;
 }
 .resume-section-heading {
     font-size: 1.3rem;
